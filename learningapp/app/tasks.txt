@@ -4,4 +4,4 @@
 4.leaderboard					30%
 5.scrolling adapt to images		100%
 6.add test form					0%
-test
+testts
