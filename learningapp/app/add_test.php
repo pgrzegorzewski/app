@@ -34,7 +34,7 @@ elo
 
 
 	<header class ="header">
-		<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
+		<h1 id="title"><a href ="home.php"><b>Q</b>u¿zzy</a></h1>
 	</header>
 	
 	<div class="nav">
