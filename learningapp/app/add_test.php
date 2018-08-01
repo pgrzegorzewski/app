@@ -32,7 +32,6 @@ elo
 		test 1000pts;
 	</div>
 
-
 	<header class ="header">
 		<h1 id="title"><a href ="home.php"><b>Q</b>u¿zzy</a></h1>
 	</header>
