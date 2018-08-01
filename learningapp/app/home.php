@@ -1,30 +1,12 @@
 <?php 
-
-    require_once '../app/connect.php';
-
-    $login = $_POST['login'];
-    $password = $_POST['password'];
- 
-    
-    
-    try 
+    session_start();
+    if(isset($_SESSION['user']) != true)
     {
-        $result =  @pg_query($connection, "SELECT * FROM usr.sf_user_password_verify('$login', '$password') AS success");
-        $row = pg_fetch_assoc($result);
-        
-        if($row['success'] != 1)
-        {
-            
-        }
-        pg_close($connection);
-        
-    } catch (Exception $error) 
-    {
-        echo $error->getMessage();
+        header('Location:index.php');
+        exit();
     }
-       
-      
 ?>
+
 <!DOCTYPE html>
 <html lang = "pl">
 <head>
@@ -59,7 +41,16 @@
 		Paweł 150pts;<br>
 	</div>
 	<header class ="header">
-		<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
+		<table width = 100%>
+			<tr>
+				<td style = "text-align:left">
+					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
+				</td>
+				<td style = "text-align:right; vertical-align:bottom;">
+					<span><a href = "logout.php">Logout</a></span>
+				</td>
+			</tr>
+		</table>
 	</header>
 		<div class="nav">
 			<ol>
@@ -88,7 +79,7 @@
 		</div>
 		<section class = "section">
 			<div id ="welcome_div">
-				<h4>Wiatmy Qu¿zzy!</h4> 
+				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4> 
 				<p>Chaiłbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś w właściwym miejscu;)!!!<br><br><br></p>				
 			</div>
 
@@ -96,8 +87,6 @@
 				<div class="col-sm-6">
 					<h4>Pyatnie dnia.</h4>
 					<?php
-					
-					session_start();
 					
 					$_SESSION["used_question_ids"][] =  0;
 					
