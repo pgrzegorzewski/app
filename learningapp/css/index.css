@@ -11,3 +11,8 @@
 .form{
 	text-align:center;
 }
+
+.error{
+	color: red;
+	padding: 10px;
+}

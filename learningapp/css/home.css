@@ -30,6 +30,11 @@ img{
 	padding:10px;
 }
 
+input
+{
+	color:black;
+}
+
 #visited
 {
 	background-color:#6ac65b;
