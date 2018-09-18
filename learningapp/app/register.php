@@ -61,9 +61,54 @@
             $success = false;
             $_SESSION['e_recaptcha'] = "You are bot";
         }
-          
+        
+        require_once 'connect.php';
+        
+        try
+        {
+            if($connection)
+            {
+                $username_check = @pg_query($connection, "SELECT * FROM usr.sf_username_unique_check('$login') AS is_username_unique");
+                $is_username_check = pg_fetch_assoc($username_check);
+                
+                if($is_username_check['is_username_unique'] != 1)
+                {
+                    $success = false;
+                    $_SESSION['e_nick'] = "Nick already in use";
+                    
+                }
+                pg_free_result($username_check);
+                
+                $email_check = @pg_query($connection, "SELECT * FROM usr.sf_email_unique_check('$email') AS is_email_unique");
+                $is_email_check = pg_fetch_assoc($email_check);
+                if($is_email_check['is_email_unique'] != 1)
+                {
+                    $success = false;
+                    $_SESSION['e_email'] = "Email already in use";
+                    
+                }
+                
+                pg_free_result($email_check);
+                
+                if($success == true)
+                {
+                    @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', 'madzia', 'przychodniak', '$email')"); 
+                    $_SESSION['registrationSuccessful'] = true;
+                    header('Location: home.php');
+                }
+                
+                pg_close($connection);
+            }
+        }
+        catch(Exception $err)
+        {
+            echo '<span style="color:red;">Server error! Apologies for inconvenience"';
+            echo '<br/>Dev info: '.$error->getMessage();
+        }
+        
         
     }
+    
     
 ?>
 <!DOCTYPE HTML>
