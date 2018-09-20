@@ -1,10 +1,13 @@
 <?php
+
+require '../app/connect.php';
+
 class Test
 {   
 	
 	public $testQuestionsTypes = array();
 	
-	public function drawTestSingleQuestion($conn, $category_id, $question_order)
+	public function drawTestSingleQuestion($connection, $category_id, $question_order)
 	{
 		$sqlTestQuestions = "SELECT
 	  							q.question_id,
@@ -38,7 +41,7 @@ class Test
 						WHERE qa.question_id = q.question_id
 											";
 		
-		$result =  pg_query($conn, $sqlTestQuestions);
+		$result =  pg_query($connection, $sqlTestQuestions);
 		
 		$row = pg_fetch_assoc($result);
 		$row_counter = 0;
@@ -98,13 +101,13 @@ class Test
 		}
 	}
 	
-	public function returnTest($conn, $size, $category_id)
+	public function returnTest($connection, $size, $category_id)
 	{
 		for($x = 1; $x <= $size; $x++)
 		{
-			$this->drawTestSingleQuestion($conn, $category_id, $x);
+		    $this->drawTestSingleQuestion($connection, $category_id, $x);
 		}
-		pg_close($conn);
+		pg_close($connection);
 	}
 	
 	public function generateAnswearDivs($size)

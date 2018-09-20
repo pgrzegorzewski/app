@@ -16,7 +16,7 @@
 		
 		if($categoryId){
 			
-			$result =  pg_query($conn, "SELECT * FROM questions.sf_question_test_size_get('$categoryId') AS size");
+			$result =  pg_query($connection, "SELECT * FROM questions.sf_question_test_size_get('$categoryId') AS size");
 			$row = pg_fetch_assoc($result);
 			$size = $row['size'];
 			if($size> 0){
@@ -26,16 +26,16 @@
 			{
 				echo 'There are no questions from this category. We will add them soon;)';		
 			}
-			pg_close($conn);
+			pg_close($connection);
 	
 		}
 		
-		$conn= pg_connect($conn_string);
+		//$connection= pg_connect($connection_string);
 		
 		require '../php/class_test.php';
 		$test = new test();
 		if($size){
-			$test -> returnTest($conn, $size, $categoryId);
+			$test -> returnTest($connection, $size, $categoryId);
 		}else{
 			echo 'Unfortunately there are no questions from this category;( We will add them soon, be patient;)';
 		}echo '</div>';
@@ -47,7 +47,7 @@
 		echo"		
 				</div>
 			";
-		//pg_close($conn);
+		//pg_close($connection);
 		
 		
 	}	
