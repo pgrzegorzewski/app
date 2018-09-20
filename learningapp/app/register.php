@@ -94,7 +94,7 @@
                 {
                     @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', 'madzia', 'przychodniak', '$email')"); 
                     $_SESSION['registrationSuccessful'] = true;
-                    header('Location: home.php');
+                    header('Location: register_success.php');
                 }
                 
                 pg_close($connection);
@@ -105,8 +105,7 @@
             echo '<span style="color:red;">Server error! Apologies for inconvenience"';
             echo '<br/>Dev info: '.$error->getMessage();
         }
-        
-        
+              
     }
     
     
