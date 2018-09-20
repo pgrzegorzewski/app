@@ -5,6 +5,20 @@
     {
         $success = true;
         
+        $first_name = $_POST['first_name'];
+        if($first_name == '' || strlen($first_name) < 2)
+        {
+            $success = false;
+            $_SESSION['e_first_name'] = "Niepoprawne imię";
+        }
+        
+        $last_name = $_POST['last_name'];
+        if($last_name == '' || strlen($last_name) < 2)
+        {
+            $success = false;
+            $_SESSION['e_last_name'] = "Niepoprawne nazwisko";
+        }
+        
         $nick = $_POST['nick'];
         if(strlen($nick) < 3 || strlen($nick) > 20)
         {
@@ -92,7 +106,7 @@
                 
                 if($success == true)
                 {
-                    @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', 'madzia', 'przychodniak', '$email')"); 
+                    @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', '$first_name', '$last_name', '$email')"); 
                     $_SESSION['registrationSuccessful'] = true;
                     header('Location: register_success.php');
                 }
@@ -129,9 +143,29 @@
 	<div class="container-fluid">
     	<div class = "container section">   
     	 	<div class="form"><h1><b>Q</b>u¿zzy</h1></div><br />
-    	 	<div class="form"><h4>Rejestracja</h4></div>
+    	 	<div class="form"><h4>Formularz rejestracji</h4></div>
     	 	<div class="form">
         	 	<form method="post">
+        	 		
+        	 		Imię: <br />
+        	 		<input type = "text" name="first_name"><br />
+        	 		
+        	 		<?php 
+            			if(isset($_SESSION['e_first_name'])){
+            				echo '<div class = "error">'.$_SESSION['e_first_name'].'</div>';
+            				unset($_SESSION['e_first_name']);
+            			}
+		            ?>
+        	 		
+        	 		Nazwisko: <br />
+        	 		<input type = "text" name="last_name"><br />
+        	 		
+        	 		<?php 
+            			if(isset($_SESSION['e_last_name'])){
+            				echo '<div class = "error">'.$_SESSION['e_last_name'].'</div>';
+            				unset($_SESSION['e_last_name']);
+            			}
+		            ?>
         	 		
         	 		Login: <br />
         	 		<input type = "text" name="nick"><br />
@@ -146,7 +180,7 @@
         	 		Hasło: <br />
         	 		<input type = "password" name="password"><br />
         	 		
-        	 		Powtórz haslo: <br />
+        	 		Powtórz hasło: <br />
         	 		<input type = "password" name="password_2"><br />
         	 		
         	 		<?php 
