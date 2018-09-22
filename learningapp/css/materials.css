@@ -1,0 +1,16 @@
+#school_class
+{
+	text-align:center;
+}
+
+table
+{
+	width:100%;
+}
+
+table td button
+{
+	width:200px;
+	height:50px;
+	background-color:black;
+}

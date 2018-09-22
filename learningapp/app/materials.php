@@ -71,25 +71,41 @@
     						<td>
     							<button>Klasa 4</button>
     						</td>
-    						
     						<td>
     							<button>Klasa 5</button>
     						</td>
-    						
     						<td>
     							<button>Klasa 6</button>
     						</td>
-    						
     						<td>
     							<button>Klasa 7</button>
     						</td>
-    						
     						<td>
     							<button>Klasa 8</button>
     						</td>
     					</tr>
-    				
-    				</table>		
+    				</table>	
+    				<br/><br />
+    				Wybierz przedmiot:
+    				<table>
+    					<tr>
+    						<td>
+    							<button>Angielski</button>
+    						</td>
+    						<td>
+    							<button>Matematyka</button>
+    						</td>
+    						<td>
+    							<button>Biologia</button>
+    						</td>
+    						<td>
+    							<button>Polski</button>
+    						</td>
+    						<td>
+    							<button>Chemia</button>
+    						</td>
+    					</tr>			
+    				</table>	
 				</div>		
 				
 				
