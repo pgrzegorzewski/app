@@ -88,13 +88,14 @@ function checkTestQuestionAnswear(button, idValue, size, isQuestionImage)
 			else{
 				image.setAttribute("src", "../resources/img/error.png");
 			}
+			blockTestButtons(idValue);
+			document.getElementById(id).innerText = drawAnswearAlert(this.is_true);
+			document.getElementById(img_id).appendChild(image);
 		}
 	})
 	
 	
 	blockTestButtons(idValue);
-	document.getElementById(id).innerText = drawAnswearAlert(button.id);
-	document.getElementById(img_id).appendChild(image);
 	changeClassButton(button, button.id);
 	answears = answears + 1;
 	scrollDownToNextQuestion(isQuestionImage);

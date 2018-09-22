@@ -54,7 +54,7 @@ elo
 					<a href ='add_test.php'>Dodaj własny test</a>
 				</li>
 				<li>
-					<a href ='add_test.php'>Materiały</a>
+					<a href ='materials.php'>Materiały</a>
 				</li>
 				<!--  <li>
 					<a href ='#'>O autorach</a>

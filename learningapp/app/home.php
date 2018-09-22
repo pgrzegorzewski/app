@@ -70,7 +70,7 @@
 					<a href ='add_test.php'>Dodaj własny test</a>
 				</li>
 				<li>
-					<a href ='add_test.php'>Materiały</a>
+					<a href ='materials.php'>Materiały</a>
 				</li>
 				<!--  <li>
 					<a href ='#'>O autorach</a>
@@ -90,18 +90,18 @@
 					
 					$_SESSION["used_question_ids"][] =  0;
 					
-					function checkAnswear($button, $id)
+					/*function checkAnswear($button, $id)
 					{
 						$check = $button.attr("id");
 						$id = id;
 					
-						$sql = 'SELECT\
-									qa.qestion_answear_text,																\
-									qa.is_true																				\
-								FROM questions.tbl_question_answear qa														\
-								INNER JOIN questions.tbl_question q			ON		q.question_id = qa.question_id 			\
-								WHERE 																						\
-									q.question_id = $id																		\
+						$sql = 'SELECT
+									qa.qestion_answear_text,																
+									qa.is_true																				
+								FROM questions.tbl_question_answear qa														
+								INNER JOIN questions.tbl_question q			ON		q.question_id = qa.question_id 			
+								WHERE 																						
+									q.question_id = $id																		
 									AND qa.question_answear_order = $check';
 					
 						$result = $conn -> query($sqlQuestion);
@@ -115,7 +115,7 @@
 							alert("You dumbass :(");
 						}
 					
-					};
+					};*/
 					
 					require 'connect.php';
 					//$conn = mysqli_connect($servername, $username, $password, $dbname);

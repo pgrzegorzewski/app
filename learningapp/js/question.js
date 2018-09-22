@@ -13,27 +13,34 @@ function checkAnswear(button)
 	var image = document.createElement("img");
 	image.setAttribute("height", "50px");
 	image.setAttribute("width", "50px");
+	var isTrue;
 	
-	if(button.id == 1){
-		image.setAttribute("src", "../resources/img/correct.png");	
-	}
-	else{
-		image.setAttribute("src", "../resources/img/error.png");
-	}
+	$.ajax({
+		type: "POST",
+		url: "../app/answer_check.php",
+		data:{
+			question_answer_id: button.id
+		},
+		success: function(data){
+			this.isTrue = data;
+			
+			if(this.isTrue == 1){
+				image.setAttribute("src", "../resources/img/correct.png");	
+			}
+			else{
+				image.setAttribute("src", "../resources/img/error.png");
+			}
+			
+			blockButtons();
+			document.getElementById("answear").innerText = drawAnswearAlert(this.isTrue);
+			document.getElementById("answear_img").appendChild(image);
+			changeClassButton(button, isTrue);
+			createButtonDrawAgain();
+		}
+	})
 	
-	blockButtons();
-	document.getElementById("answear").innerText = drawAnswearAlert(button.id);
-	document.getElementById("answear_img").appendChild(image);
-	/*if(window.innerWidth > 765)
-	{
-		image.setAttribute("align", "left");
-		document.getElementById("answear_img").appendChild(image);
-	}
-	else
-		document.getElementById("answear").appendChild(image);*/
-	changeClassButton(button, button.id);
 	
-	createButtonDrawAgain();
+
 	
 }
 

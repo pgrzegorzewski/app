@@ -52,11 +52,8 @@
 					<a href ='add_test.php'>Dodaj własny test</a>
 				</li>
 				<li>
-					<a href ='add_test.php'>Materiały</a>
+					<a href ='#'>Materiały</a>
 				</li>
-				<!--  <li>
-					<a href ='#'>O autorach</a>
-				</li>-->
 			</ol>
 		</div>
 		<section class = "section">

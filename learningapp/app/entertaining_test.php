@@ -69,7 +69,7 @@
 				<a href ='add_test.php'>Add own test</a>
 			</li>
 			<li>
-				<a href ='#'>About author</a>
+				<a href ='materials.php'>Materiały</a>
 			</li>
 		</ol>
 	</div>

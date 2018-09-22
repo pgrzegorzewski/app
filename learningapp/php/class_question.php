@@ -7,6 +7,7 @@ class Question
     			
   											q.question_id,
   											q.question_text,
+                                            qa.question_answear_id,
 											qa.is_true,
   											qa.answear_text,
   											qa.question_answear_order,
@@ -55,7 +56,7 @@ class Question
 									<tr>";
     		pg_result_seek($result, 0);
     		while ($row = pg_fetch_assoc($result)){
-    			echo "<th><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. "\"onclick =\"checkAnswear(this)\" >".$row["question_answear_label"]."</button></th>";
+    			echo "<th><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["question_answear_id"]. "\"onclick =\"checkAnswear(this)\" >".$row["question_answear_label"]."</button></th>";
     		}
     		echo"</tr><tr>"	;
     		pg_result_seek($result, 0);
@@ -71,7 +72,7 @@ class Question
     	pg_close($conn);
     }
     
-    public function checkAnswear($button, $id, $conn)
+    /*public function checkAnswear($button, $id, $conn)
     {
     	$check = $button.attr("id");
     	$id = id;
@@ -97,7 +98,7 @@ class Question
     		alert("Niestety nie :( ");
     	}
     	
-    }
+    }*/
     
     
 }
