@@ -10,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
+	<link rel="StyleSheet" href="../css/materials.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/questionnaire.js"></script>
 	<script type="text/javascript" src="../js/question.js"></script>
@@ -46,20 +47,52 @@
 						<li><a href="#">Klasa 5</a></li>
 						<li><a href="#">Klasa 6</a></li>
 						<li><a href="entertaining_test.php">Klasa 7</a></li>
+						<li><a href="#">Klasa 8</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href ='add_test.php'>Dodaj własny test</a>
 				</li>
-				<li>
-					<a href ='#'>Materiały</a>
+				<li id = "visited">
+					<a href ='#' >Materiały</a>
 				</li>
 			</ol>
 		</div>
 		<section class = "section">
 			<div id ="welcome_div">
-				<h4></h4> 
-				<p></p>				
+				<h4>Materiały</h4> 
+				<p>Nie byłeś na lekcji? Nie robiłeś notatek? A może chcesz zrobić małą powtórkę? To idealne miejsce! Znajdziesz tu wszystko czego potzebujesz!</p>
+				<br />
+				<br />
+				<div id ='school_class'>
+					Wybierz klasę:
+    				<table>
+    					<tr>
+    						<td>
+    							<button>Klasa 4</button>
+    						</td>
+    						
+    						<td>
+    							<button>Klasa 5</button>
+    						</td>
+    						
+    						<td>
+    							<button>Klasa 6</button>
+    						</td>
+    						
+    						<td>
+    							<button>Klasa 7</button>
+    						</td>
+    						
+    						<td>
+    							<button>Klasa 8</button>
+    						</td>
+    					</tr>
+    				
+    				</table>		
+				</div>		
+				
+				
 			</div>
 
 		</section>

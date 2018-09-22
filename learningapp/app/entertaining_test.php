@@ -63,6 +63,7 @@
 					<li><a href="#">Cultural</a></li>
 					<li><a href="#">Science</a></li>
 					<li><a href="#" id = "visited">Entertaining</a></li>
+					<li><a href="#">Klasa 8</a></li>
 				</ul>
 			</li>
 			<li>
