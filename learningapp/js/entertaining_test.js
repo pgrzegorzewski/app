@@ -4,7 +4,7 @@ var answears = 0;
 
 $(document).ready(function(){
     $(".category").on("click" ,function(){
-    	scrolled = scrolled + 550;
+    	scrolled = scrolled + 520;
     	$('html, body').animate({
         scrollTop:  scrolled
 	});

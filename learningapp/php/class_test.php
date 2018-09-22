@@ -2,43 +2,58 @@
 
 require '../app/connect.php';
 
+
 class Test
 {   
-	
+    
+   
+    private  $defaultTestSize = 10;
+    
 	public $testQuestionsTypes = array();
 	
 	public function drawTestSingleQuestion($connection, $category_id, $question_order)
 	{
-		$sqlTestQuestions = "SELECT
-	  							q.question_id,
-	  							q.question_text,
-								q.question_order,
-								qa.is_true,
-	  							qa.answear_text,
-	  							qa.question_answear_order,
-	  							qa.question_answear_label,
-								q.is_image AS is_question_image,
-								q.image_url AS question_image_url,
-								qa.is_image AS is_answear_image,
-								qa.image_url AS answear_image_url
-	  					FROM
-	  							questions.tbl_question q
-						INNER JOIN (
-				
-										SELECT COALESCE(t.question_id, 1) AS question_id FROM questions.tbl_question t
-										INNER JOIN
-													(
-								    					SELECT question_id FROM questions.tbl_question
-														WHERE category_id = " .$category_id. "
-														AND question_order = " .$question_order. "
-														ORDER BY question_id
-													)xx
-													ON xx.question_id = t.question_id
-																
-						    		)x
-						ON x.question_id = q.question_id
-						INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
-						WHERE qa.question_id = q.question_id
+		$sqlTestQuestions = "
+                              SELECT
+                                        q.question_id,
+                                        q.question_text,
+                                        x.question_order,
+                                        qa.is_true,
+                                        qa.answear_text,
+                                        qa.question_answear_order,
+                                        qa.question_answear_label,
+                                        q.is_image AS is_question_image,
+                                        q.image_url AS question_image_url,
+                                        qa.is_image AS is_answear_image,
+                                        qa.image_url AS answear_image_url
+                                FROM
+                                        questions.tbl_question q
+                                INNER JOIN (
+                                				
+                                                SELECT 
+                                                	t.question_id
+                                                    ,xx.question_order
+                                                FROM questions.tbl_question t
+                                                INNER JOIN
+                                                            (
+                                                                SELECT 
+                                                                	question_id
+                                                                	,ROW_NUMBER() OVER (ORDER BY question_id) AS question_order 
+                                                                FROM questions.tbl_question
+                                                                WHERE 
+                                                                    category_id = " .$category_id. "
+                                                                ORDER BY question_id
+                                                                LIMIT 10
+                                                            )xx
+                                                            ON xx.question_id = t.question_id
+                                																
+                                            )x
+                                ON x.question_id = q.question_id
+                                INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
+                                WHERE 
+                                    x.question_order = " .$question_order. "
+                                    AND qa.question_id = q.question_id
+                                     
 											";
 		
 		$result =  pg_query($connection, $sqlTestQuestions);
@@ -81,10 +96,10 @@ class Test
 			
 			while ($row = pg_fetch_assoc($result)){	
 				if($row["is_answear_image"] == 0){
-					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["is_true"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", 6, ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["is_true"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
 				}
 				else{
-					echo "<td id = \"question\" colspan = 2><img style = \"width: 280px; height: 180px \" src = \"..".$row["answear_image_url"]. " \" /><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. " \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", 6, ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+				    echo "<td id = \"question\" colspan = 2><img style = \"width: 280px; height: 180px \" src = \"..".$row["answear_image_url"]. " \" /><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. " \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.",, ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
 					$loopImageRowCounter++;
 					if($loopImageRowCounter% 2 == 0){
 						echo "</tr><tr>";

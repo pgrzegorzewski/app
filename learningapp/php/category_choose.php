@@ -16,9 +16,11 @@
 		
 		if($categoryId){
 			
-			$result =  pg_query($connection, "SELECT * FROM questions.sf_question_test_size_get('$categoryId') AS size");
-			$row = pg_fetch_assoc($result);
-			$size = $row['size'];
+			//$result =  pg_query($connection, "SELECT * FROM questions.sf_question_test_size_get('$categoryId') AS size");
+			//$row = pg_fetch_assoc($result);
+			
+		    $size = 10;
+			
 			if($size> 0){
 				echo "<br/><br/>";	
 			}
