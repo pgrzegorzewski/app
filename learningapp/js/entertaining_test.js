@@ -67,17 +67,31 @@ function checkTestQuestionAnswear(button, idValue, size, isQuestionImage)
 	var id = 'answear' + (idValue - 1);
 	var img_id = 'answear_img' + (idValue - 1);
 	var image = document.createElement("img");
+	var is_true;
 	
 	image.setAttribute("height", "50px");
 	image.setAttribute("width", "50px");
 	
-	if(button.id == 1){
-		image.setAttribute("src", "../resources/img/correct.png");
-		result = result+1;
-	}
-	else{
-		image.setAttribute("src", "../resources/img/error.png");
-	}
+	$.ajax({
+		type: "POST",
+		url: "../app/answer_check.php",
+		data:{
+			question_answer_id: button.id
+		},
+		success: function(data){
+			this.is_true = data;
+			
+			if(this.is_true == 1){
+				image.setAttribute("src", "../resources/img/correct.png");
+				result = result+1;
+			}
+			else{
+				image.setAttribute("src", "../resources/img/error.png");
+			}
+		}
+	})
+	
+	
 	blockTestButtons(idValue);
 	document.getElementById(id).innerText = drawAnswearAlert(button.id);
 	document.getElementById(img_id).appendChild(image);

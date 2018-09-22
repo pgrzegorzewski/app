@@ -76,14 +76,15 @@ class Question
     	$check = $button.attr("id");
     	$id = id;
     	
-    	$sql = 'SELECT\
-								qa.qestion_answear_text,																\
-								qa.is_true																				\
-							FROM questions.tbl_question_answear qa														\
-							INNER JOIN questions.tbl_question q			ON		q.question_id = qa.question_id 			\
-							WHERE 																						\
-								q.question_id = $id																		\
-								AND qa.question_answear_order = $check';
+    	$sql = 'SELECT
+                    qa.question_answear_id,
+    				qa.qestion_answear_text,																
+    				qa.is_true																				
+    			FROM questions.tbl_question_answear qa														
+    			INNER JOIN questions.tbl_question q			ON		q.question_id = qa.question_id 			
+    			WHERE 																						
+    				q.question_id = $id																		
+    				AND qa.question_answear_order = $check';
     	
     	//$result = $conn -> query($sqlQuestion);
     	$pg_query($conn, $sqlQuestion);

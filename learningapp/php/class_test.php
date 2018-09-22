@@ -18,6 +18,7 @@ class Test
                                         q.question_id,
                                         q.question_text,
                                         x.question_order,
+                                        qa.question_answear_id,
                                         qa.is_true,
                                         qa.answear_text,
                                         qa.question_answear_order,
@@ -96,7 +97,9 @@ class Test
 			
 			while ($row = pg_fetch_assoc($result)){	
 				if($row["is_answear_image"] == 0){
-					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["is_true"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+					//echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["is_true"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["question_answear_id"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+				    
 				}
 				else{
 				    echo "<td id = \"question\" colspan = 2><img style = \"width: 280px; height: 180px \" src = \"..".$row["answear_image_url"]. " \" /><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. " \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.",, ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
