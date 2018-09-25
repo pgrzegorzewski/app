@@ -7,12 +7,69 @@ class Test
 {   
     
    
-    private  $defaultTestSize = 10;
+    public  $defaultTestSize = 10;
+    public $size;
     
 	public $testQuestionsTypes = array();
 	
+	public function countTestQuestions($connection, $category_id)
+	{
+	    $sqlTestSize= "
+                              SELECT COUNT(DISTINCT y.question_id) AS test_size
+                              FROM 
+                                    (  
+                                        SELECT
+                                                q.question_id,
+                                                q.question_text,
+                                                x.question_order,
+                                                qa.question_answear_id,
+                                                qa.is_true,
+                                                qa.answear_text,
+                                                qa.question_answear_order,
+                                                qa.question_answear_label,
+                                                q.is_image AS is_question_image,
+                                                q.image_url AS question_image_url,
+                                                qa.is_image AS is_answear_image,
+                                                qa.image_url AS answear_image_url
+                                        FROM
+                                                questions.tbl_question q
+                                        INNER JOIN (
+        	        
+                                                        SELECT
+                                                        	t.question_id
+                                                            ,xx.question_order
+                                                        FROM questions.tbl_question t
+                                                        INNER JOIN
+                                                                    (
+                                                                        SELECT
+                                                                        	question_id
+                                                                        	,ROW_NUMBER() OVER (ORDER BY question_id) AS question_order
+                                                                        FROM questions.tbl_question
+                                                                        WHERE
+                                                                            category_id = " .$category_id. "
+                                                                        ORDER BY question_id
+                                                                        LIMIT 10
+                                                                    )xx
+                                                                    ON xx.question_id = t.question_id
+                                                                                
+                                                    )x
+                                        ON x.question_id = q.question_id
+                                        INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
+                                     ) y   
+											";
+	    
+	    $result =  pg_query($connection, $sqlTestSize);
+	    
+	    $row = pg_fetch_assoc($result);
+	    $this->size = $row['test_size'];
+	    	    
+	}
+
+
+	
 	public function drawTestSingleQuestion($connection, $category_id, $question_order)
 	{
+
 		$sqlTestQuestions = "
                               SELECT
                                         q.question_id,
@@ -85,6 +142,7 @@ class Test
 				</table>";
 			array_push($this -> testQuestionsTypes, 'image');
 			$row_counter++;
+			
 		}
 		$loopImageRowCounter = 0;
 		pg_result_seek($result, 0);
@@ -117,11 +175,13 @@ class Test
 			echo "</tr></table><br/><br/><br/><br/>";
 			//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 		}
+		
 	}
 	
 	public function returnTest($connection, $size, $category_id)
 	{
-		for($x = 1; $x <= $size; $x++)
+	    echo $this->size;
+	    for($x = 1; $x <= $size; $x++)
 		{
 		    $this->drawTestSingleQuestion($connection, $category_id, $x);
 		}
