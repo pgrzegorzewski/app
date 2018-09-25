@@ -180,7 +180,6 @@ class Test
 	
 	public function returnTest($connection, $size, $category_id)
 	{
-	    echo $this->size;
 	    for($x = 1; $x <= $size; $x++)
 		{
 		    $this->drawTestSingleQuestion($connection, $category_id, $x);

@@ -37,11 +37,7 @@ function checkAnswear(button)
 			changeClassButton(button, isTrue);
 			createButtonDrawAgain();
 		}
-	})
-	
-	
-
-	
+	})	
 }
 
 

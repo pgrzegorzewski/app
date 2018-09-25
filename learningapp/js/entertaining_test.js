@@ -115,7 +115,7 @@ function scrollDownToNextQuestion(isImage)
 	scrolled = scrolled + scrollLenght;
 	$('html, body').animate({
 	        scrollTop:  scrolled
-	   });
+	   }, 900);
 }
 
 
