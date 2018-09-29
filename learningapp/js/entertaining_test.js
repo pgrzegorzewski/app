@@ -62,7 +62,7 @@ function categoryIdGet()
 	return button[0].id;
 }
 
-function checkTestQuestionAnswear(button, idValue, size, isQuestionImage)
+function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, username)
 {
 	var id = 'answear' + (idValue - 1);
 	var img_id = 'answear_img' + (idValue - 1);
@@ -74,9 +74,10 @@ function checkTestQuestionAnswear(button, idValue, size, isQuestionImage)
 	
 	$.ajax({
 		type: "POST",
-		url: "../app/answer_check.php",
+		url: "../php/test_question_answer_check.php",
 		data:{
-			question_answer_id: button.id
+			question_answer_id: button.id,
+			user: username
 		},
 		success: function(data){
 			this.is_true = data;

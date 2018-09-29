@@ -8,7 +8,7 @@ var success_alerts = ["Racja;)", "Punkt dla Ciebie", "Wypaśnie", "Umisz to!"];
 var failure_alerts = ["Niestety nie", "Nie tym razem;/", "Słabo:(", "Ej no weź"];
 
 
-function checkAnswear(button)
+function checkAnswer(button)
 {
 	var image = document.createElement("img");
 	image.setAttribute("height", "50px");
@@ -17,7 +17,7 @@ function checkAnswear(button)
 	
 	$.ajax({
 		type: "POST",
-		url: "../app/answer_check.php",
+		url: "../php/answer_check.php",
 		data:{
 			question_answer_id: button.id
 		},

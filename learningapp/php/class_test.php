@@ -1,12 +1,11 @@
 <?php
 
+session_start();
 require '../app/connect.php';
 
 
 class Test
 {   
-    
-   
     public  $defaultTestSize = 10;
     public $size;
     
@@ -22,15 +21,15 @@ class Test
                                                 q.question_id,
                                                 q.question_text,
                                                 x.question_order,
-                                                qa.question_answear_id,
+                                                qa.question_answer_id,
                                                 qa.is_true,
-                                                qa.answear_text,
-                                                qa.question_answear_order,
-                                                qa.question_answear_label,
+                                                qa.answer_text,
+                                                qa.question_answer_order,
+                                                qa.question_answer_label,
                                                 q.is_image AS is_question_image,
                                                 q.image_url AS question_image_url,
-                                                qa.is_image AS is_answear_image,
-                                                qa.image_url AS answear_image_url
+                                                qa.is_image AS is_answer_image,
+                                                qa.image_url AS answer_image_url
                                         FROM
                                                 questions.tbl_question q
                                         INNER JOIN (
@@ -54,7 +53,7 @@ class Test
                                                                                 
                                                     )x
                                         ON x.question_id = q.question_id
-                                        INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
+                                        INNER JOIN questions.tbl_question_answer qa			ON				qa.question_id = x.question_id
                                      ) y   
 											";
 	    
@@ -75,15 +74,15 @@ class Test
                                         q.question_id,
                                         q.question_text,
                                         x.question_order,
-                                        qa.question_answear_id,
+                                        qa.question_answer_id,
                                         qa.is_true,
-                                        qa.answear_text,
-                                        qa.question_answear_order,
-                                        qa.question_answear_label,
+                                        qa.answer_text,
+                                        qa.question_answer_order,
+                                        qa.question_answer_label,
                                         q.is_image AS is_question_image,
                                         q.image_url AS question_image_url,
-                                        qa.is_image AS is_answear_image,
-                                        qa.image_url AS answear_image_url
+                                        qa.is_image AS is_answer_image,
+                                        qa.image_url AS answer_image_url
                                 FROM
                                         questions.tbl_question q
                                 INNER JOIN (
@@ -107,7 +106,7 @@ class Test
                                 																
                                             )x
                                 ON x.question_id = q.question_id
-                                INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
+                                INNER JOIN questions.tbl_question_answer qa			ON				qa.question_id = x.question_id
                                 WHERE 
                                     x.question_order = " .$question_order. "
                                     AND qa.question_id = q.question_id
@@ -154,13 +153,13 @@ class Test
 											<tr>";
 			
 			while ($row = pg_fetch_assoc($result)){	
-				if($row["is_answear_image"] == 0){
+				if($row["is_answer_image"] == 0){
 					//echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["is_true"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
-					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["question_answear_id"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+					echo "<td id = \"question\"><button type=\"button\" class=\"btn btn-info\" id =\"".$row["question_answer_id"]." \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswer(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image']." ,'".$_SESSION['user']."')\" >".$row["question_answer_label"]."</button><br>".$row["answer_text"]."</td>";
 				    
 				}
 				else{
-				    echo "<td id = \"question\" colspan = 2><img style = \"width: 280px; height: 180px \" src = \"..".$row["answear_image_url"]. " \" /><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. " \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswear(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image'].")\" >".$row["question_answear_label"]."</button><br>".$row["answear_text"]."</td>";
+				    echo "<td id = \"question\" colspan = 2><img style = \"width: 280px; height: 180px \" src = \"..".$row["answer_image_url"]. " \" /><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["is_true"]. " \"style=\"width:50px;\" onclick =\"checkTestQuestionAnswer(this, ".$row["question_order"].", ".$this -> defaultTestSize.", ".$row['is_question_image']." ,'".$_SESSION['user']."')\" >".$row["question_answer_label"]."</button><br>".$row["answer_text"]."</td>";
 					$loopImageRowCounter++;
 					if($loopImageRowCounter% 2 == 0){
 						echo "</tr><tr>";

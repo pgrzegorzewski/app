@@ -7,11 +7,11 @@ class Question
     			
   											q.question_id,
   											q.question_text,
-                                            qa.question_answear_id,
+                                            qa.question_answer_id,
 											qa.is_true,
-  											qa.answear_text,
-  											qa.question_answear_order,
-  											qa.question_answear_label
+  											qa.answer_text,
+  											qa.question_answer_order,
+  											qa.question_answer_label
   										FROM
   											questions.tbl_question q
 										INNER JOIN (
@@ -28,7 +28,7 @@ class Question
 																	
 										    		)x
 										ON x.question_id = q.question_id
-										INNER JOIN questions.tbl_question_answear qa			ON				qa.question_id = x.question_id
+										INNER JOIN questions.tbl_question_answer qa			ON				qa.question_id = x.question_id
 										WHERE qa.question_id = q.question_id
 										--ORDER BY random()
 										";
@@ -56,12 +56,12 @@ class Question
 									<tr>";
     		pg_result_seek($result, 0);
     		while ($row = pg_fetch_assoc($result)){
-    			echo "<th><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["question_answear_id"]. "\"onclick =\"checkAnswear(this)\" >".$row["question_answear_label"]."</button></th>";
+    		    echo "<th><button type=\"button\" class=\"btn btn-info\" id =\" ".$row["question_answer_id"]. "\"onclick =\"checkAnswer(this)\" >".$row["question_answer_label"]."</button></th>";
     		}
     		echo"</tr><tr>"	;
     		pg_result_seek($result, 0);
     		while ($row = pg_fetch_assoc($result)){
-    			echo "<td>".$row["answear_text"]."</td>";
+    			echo "<td>".$row["answer_text"]."</td>";
     		}
     		echo "</tr></table>";
     	}
