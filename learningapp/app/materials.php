@@ -74,7 +74,7 @@
 		<section class = "section">
 			<div id ="welcome_div">
 				<h4>Materiały</h4> 
-				<p>Nie byłeś na lekcji? Nie robiłeś notatek? A może chcesz zrobić małą powtórkę? To idealne miejsce! Znajdziesz tu wszystko czego potzebujesz!</p>
+				<p>Nie byłeś na lekcji? Nie robiłeś notatek? A może chcesz zrobić małą powtórkę? To idealne miejsce! Znajdziesz tu wszystko czego potrzebujesz!</p>
 				<br />
 				<br />
 				<div id ='school_class'>

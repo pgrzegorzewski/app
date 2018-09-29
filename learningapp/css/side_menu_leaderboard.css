@@ -4,7 +4,7 @@
 	width:0;
 	position: fixed;
 	z-index: 250;
-	top: 140px;
+	top: 144px;
 	right: 0;
 	border:0px solid #CAAB15;
 	background-color:#AFC2D1;
@@ -31,7 +31,7 @@
 	border-left:2px solid #CAAB15;
 	position: fixed;
 	z-index: 200;
-	top: 140px;
+	top: 144px;
 	right: 0;
 	font-size:20px;
 	text-align:center;
@@ -43,7 +43,7 @@
 	width:25px;
 	position: fixed;
 	z-index: 150;
-	top: 140px;
+	top: 144px;
 	right: 0;
 	border-bottom:2px solid #CAAB15;
 	border-top:2px solid #CAAB15;
