@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include 'connect.php';
 
 if(isset($_POST['question_answer_id']))

@@ -46,8 +46,8 @@
 				<td style = "text-align:left">
 					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
 				</td>
-				<td style = "text-align:right; vertical-align:bottom;">
-					<span><a href = "logout.php">Logout</a></span>
+				<td style = "text-align:right">
+					<span>Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
 				</td>
 			</tr>
 		</table>

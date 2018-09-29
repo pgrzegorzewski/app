@@ -45,10 +45,18 @@
 			</tr>
 		</table>
 	</div>
-
-
+	
 	<header class ="header">
-		<h1 id="title"><a href ="home.php"><b>Q</b>u¿zzy</a></h1>
+		<table width = 100%>
+			<tr>
+				<td style = "text-align:left">
+					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
+				</td>
+				<td style = "text-align:right">
+					<span>Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
+				</td>
+			</tr>
+		</table>
 	</header>
 	
 	<div class="nav">
