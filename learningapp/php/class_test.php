@@ -3,14 +3,13 @@
 session_start();
 require '../app/connect.php';
 
-
 class Test
 {   
     public  $defaultTestSize = 10;
     public $size;
-    
-	public $testQuestionsTypes = array();
-	
+    public $testQuestionsTypes = array();
+    public $userId;
+            
 	public function countTestQuestions($connection, $category_id)
 	{
 	    $sqlTestSize= "
@@ -68,8 +67,13 @@ class Test
 	
 	public function drawTestSingleQuestion($connection, $category_id, $question_order)
 	{
-
-		$sqlTestQuestions = "
+	    
+	    $result =  pg_query($connection, "SELECT user_id FROM usr.tbl_user WHERE username = '".$_SESSION['user']."'");
+	    $row = pg_fetch_assoc($result);
+	    
+	    $this->userId = $row['user_id'];
+	    
+		$sqlTestQuestions = /*"
                               SELECT
                                         q.question_id,
                                         q.question_text,
@@ -111,7 +115,19 @@ class Test
                                     x.question_order = " .$question_order. "
                                     AND qa.question_id = q.question_id
                                      
-											";
+											";*/
+		
+		                  "
+                                SELECT 
+                                      *
+                                FROM  questions.tf_user_category_test_questions_list (
+                                	$category_id
+                                    ,".(int)$this->userId."
+                                )x
+                                WHERE x.question_order = " .$question_order. "
+
+                          ";
+		                      
 		
 		$result =  pg_query($connection, $sqlTestQuestions);
 		
