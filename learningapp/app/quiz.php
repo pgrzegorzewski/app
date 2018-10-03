@@ -14,11 +14,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
-	<link rel="StyleSheet" href="../css/entertaining_test.css" />
+	<link rel="StyleSheet" href="../css/class_7_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
-	<script type="text/javascript" src="../js/entertaining_test.js"></script>
+	<script type="text/javascript" src="../js/class_7_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 </head>
 
@@ -53,7 +53,7 @@
 					<li><a href="#">Personality</a></li>
 					<li><a href="#">Cultural</a></li>
 					<li><a href="#">Science</a></li>
-					<li><a href="entertaining_test.php">Entertaining</a></li>
+					<li><a href="class_7_test.php">Entertaining</a></li>
 				</ul>
 			</li>
 			<li>

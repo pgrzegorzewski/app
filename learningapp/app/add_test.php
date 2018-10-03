@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
-	<link rel="StyleSheet" href="../css/entertaining_test.css" />
+	<link rel="StyleSheet" href="../css/class_7_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/add_test.js"></script>
@@ -47,7 +47,7 @@ elo
 						<li><a href="#">Klasa 4</a></li>
 						<li><a href="#">Klasa 5</a></li>
 						<li><a href="#">Klasa 6</a></li>
-						<li><a href="entertaining_test.php">Klasa 7</a></li>
+						<li><a href="class_7_test.php">Klasa 7</a></li>
 						<li><a href="#">Klasa 8</a></li>
 					</ul>
 				</li>
@@ -70,19 +70,19 @@ elo
 				<p>Wypełnij formularz aby dodać własnt test, wymagane informacje są oznaczone gwiazdką'*'.</p>
 				<br>
 				<form>
-				  <span class="questionTitle">Nazwa testu*:</span><br>
-				  <input class = "testGeneralInformation" id = "testName" type ="text" name ="test_name"><br><br>
-				  <span class="questionTitle">Wybierz klasę*:</span><br>
-				  <input type ="radio" name ="testTypeChoose" value = "quiz">Klasa 7
-				  <input type ="radio" name ="testTypeChoose" value ="test"> Klasa 8
-				  <br><br>
+					<span class="questionTitle">Nazwa testu*:</span><br>
+                    <input class = "testGeneralInformation" id = "testName" type ="text" name ="test_name"><br><br>
+                    <span class="questionTitle">Wybierz klasę*:</span><br>
+                    <input type ="radio" name ="testTypeChoose" value = "quiz">Klasa 7
+                    <input type ="radio" name ="testTypeChoose" value ="test"> Klasa 8
+                    <br><br>
 				 </form>
 				 <form>
-				  <span class="questionTitle">Wybierz kategorię*:</span><br>
-				  <input type ="radio" name ="testTypeChoose" value = "quiz">Matematyka
-				  <input type ="radio" name ="testTypeChoose" value ="test"> Chemia
-				  <input type ="radio" name ="testTypeChoose" value = "quiz">Język angielski
-				  <input type ="radio" name ="testTypeChoose" value ="test">Geografia		  
+                    <span class="questionTitle">Wybierz kategorię*:</span><br>
+                    <input type ="radio" name ="testTypeChoose" value = "quiz">Matematyka
+                    <input type ="radio" name ="testTypeChoose" value ="test"> Chemia
+                    <input type ="radio" name ="testTypeChoose" value = "quiz">Język angielski
+					<input type ="radio" name ="testTypeChoose" value ="test">Geografia		  
 				</form><br>
 				<div id = "question_container">
 					<div class = 'new_question_div'>

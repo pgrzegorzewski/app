@@ -14,10 +14,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
-	<link rel="StyleSheet" href="../css/entertaining_test.css" />
-	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
+	<link rel="StyleSheet" href="../css/class_7_test.css" />
+	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />	
+	<link rel="StyleSheet" href="../css/achievement_modal.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
-	<script type="text/javascript" src="../js/entertaining_test.js"></script>
+	<script type="text/javascript" src="../js/class_7_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 </head>
 
@@ -134,6 +135,13 @@
 		</div>
 				
 	</section>
+	
+	<div id="award_FAST" class="achievement_modal">
+        <div class="modal-content">
+       		<p>Gratulacje! Zdobywasz odznake</p>
+        </div>
+    </div>
+    
 	<div class="footer">
 		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 	</div>

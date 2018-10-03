@@ -1,6 +1,9 @@
 var scrolled = 0;
 var result = 0;
 var answears = 0;
+var startTime = 0;
+var endTIme = 0;
+var FAST_AWARD = 150;
 
 $(document).ready(function(){
     $(".category").on("click" ,function(){
@@ -36,6 +39,7 @@ window.onload = function()
 			categoryIdPass(this.id);
 		}
 	}
+	this.startTime = new Date().getTime();
 }
 
 function categoryIdPass(id)
@@ -54,7 +58,10 @@ function blockCategoryButtons(buttons)
 		buttons[i].style.backgroundColor = "#9a9a9a"
 		buttons[i].style.color = "white"
 	}
+	
 }
+
+
 
 function categoryIdGet()
 {
@@ -136,6 +143,20 @@ function blockTestCategoryButtons()
 	$('#tile').find(".btn").attr("disabled", "disabled");
 }
 
+function sleep(ms)
+{
+    return(new Promise(function(resolve, reject) {        
+        setTimeout(function() { resolve(); }, ms);        
+    }));    
+}
+
+function closeModal()
+{
+	setTimeout(function(){
+		  $('#award_FAST').hide()
+		}, 4000);
+}
+
 function printResult()
 {
 	
@@ -151,7 +172,17 @@ function printResult()
 	}else if(result/answears < 0.5){
 		resultComment = 'Lepiej jakbys jeszcze sobie powtórzył materiał;/';
 	}
+	this.endTime = new Date().getTime();
 	document.getElementById('result_text').hidden = false;
 	document.getElementById('result_award').hidden = false;
-	document.getElementById('result_text').innerText = 'Twój wynik ' + result + '/' + answears + ' ' +  resultComment;
+	document.getElementById('result_text').innerText = 'Twój wynik ' + result + '/' + answears + ' ' +  resultComment + '\nZrobiłeś to w ' + ((this.endTime - this.startTime) / 1000) + 'seconds';
+	
+	if(result == answears && ((this.endTime - this.startTime) / 1000) < this.FAST_AWARD)
+	{
+		var modal = document.getElementById('award_FAST');
+		modal.style.display = "block";
+		closeModal();
+		
+	}
+	
 }
