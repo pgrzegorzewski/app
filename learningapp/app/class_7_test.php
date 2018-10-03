@@ -37,7 +37,7 @@
 		<table>
 			<tr>
 				<td><img src="http://simexis.com/ss-data/cache/product/16/16-30/multi_language_for_laravel_5.x-1024x1024-thumb.png" height="62" width="62"></td>
-				<td></td>
+				<td><img src="../resources/img/achievments/fast.png" height="62" width="62"></td>
 			</tr>
 			<tr>
 				<td></td>

@@ -153,7 +153,7 @@ function sleep(ms)
 function closeModal()
 {
 	setTimeout(function(){
-		  $('#award_FAST').hide()
+		  $('#award_FAST').hide('slow')
 		}, 4000);
 }
 
@@ -179,8 +179,7 @@ function printResult()
 	
 	if(result == answears && ((this.endTime - this.startTime) / 1000) < this.FAST_AWARD)
 	{
-		var modal = document.getElementById('award_FAST');
-		modal.style.display = "block";
+		$('#award_FAST').show('slow');
 		closeModal();
 		
 	}

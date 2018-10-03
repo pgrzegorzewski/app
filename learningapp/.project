@@ -26,4 +26,11 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>resources/img/achievments/fast.png</name>
+			<type>1</type>
+			<location>C:/xampp/htdocs/app/learningapp/resources/img/achievments/fast.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
