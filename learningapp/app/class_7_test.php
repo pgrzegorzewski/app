@@ -135,10 +135,27 @@
 		</div>
 				
 	</section>
-	
 	<div id="award_FAST" class="achievement_modal">
         <div class="modal-content">
-       		<p>Gratulacje! Zdobywasz odznake</p>
+       		<table>
+       			<tr>
+       				<td rowspan="2">
+       					<img src ='../resources/img/awards.png' width="90px" height = "100px" class ="trumpets"/>
+       				</td>
+       				<td valign="top">
+       					Gratulacje!<br/>Zdobywasz odznake
+       				</td>
+       				<td  rowspan="2">
+       					<img src ='../resources/img/awards.png' width="90px" height = "100px" class="flipped trumpets"/>
+       				</td>
+       			</tr>
+       			<tr>
+       				<td id="award_img">
+       					<img src= '../resources/img/achievments/fast.png' width = "120px" />
+       				</td>
+       			</tr>
+       		</table>
+       	
         </div>
     </div>
     

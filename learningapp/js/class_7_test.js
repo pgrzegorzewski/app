@@ -154,7 +154,7 @@ function closeModal()
 {
 	setTimeout(function(){
 		  $('#award_FAST').hide('slow')
-		}, 4000);
+		}, 5000);
 }
 
 function printResult()
@@ -180,6 +180,9 @@ function printResult()
 	if(result == answears && ((this.endTime - this.startTime) / 1000) < this.FAST_AWARD)
 	{
 		$('#award_FAST').show('slow');
+		setTimeout(function(){
+			  $('#award_img').show('slow')
+			}, 2000);
 		closeModal();
 		
 	}
