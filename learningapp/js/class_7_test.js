@@ -183,8 +183,7 @@ function printResult()
 		setTimeout(function(){
 			  $('#award_img').show('slow')
 			}, 2000);
-		closeModal();
-		
+		closeModal();		
 	}
 	
 }

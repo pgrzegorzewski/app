@@ -137,7 +137,7 @@
 	</section>
 	<div id="award_FAST" class="achievement_modal">
         <div class="modal-content">
-       		<table>
+       		<table id="#modal_table">
        			<tr>
        				<td rowspan="2">
        					<img src ='../resources/img/awards.png' width="90px" height = "100px" class ="trumpets"/>
