@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(isset($_SESSION['user']) != true)
+    if(isset($_SESSION['user']) != true && isset($_SESSION['is_logged']) != true)
     {
         header('Location:index.php');
         exit();

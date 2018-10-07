@@ -20,9 +20,11 @@ try
         {
             $user_password = @pg_query($connection, "SELECT * FROM usr.sf_user_password_get('$login') AS password_string");
             $password_string = pg_fetch_assoc($user_password);
+            
             if(password_verify($password, $password_string['password_string']))
             {
                 header('Location:home.php');
+                $_SESSION['is_logged'] = true;
             }
             else
             {
