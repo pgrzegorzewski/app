@@ -1,5 +1,10 @@
 <?php 
     session_start();
+    require 'connect.php';
+    include '../php/class_achievement.php';
+    $achievement = new Achievement();
+    $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
+    $achievement->getBadgetList($connection);
 ?>
 
 <!DOCTYPE html>
@@ -33,17 +38,33 @@
 		<p style="cursor:pointer"><img src = "../resources/img/trophy.png" height = "50px" onmouseover="openLeaderboard()"/></p> <!-- &#9776; -->
 	</div>
 	<div id = 'leaderboard' class = 'leaderboard' onmouseleave = "closeLeaderboard()" >
-		<a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
+		<span>Acievement badgets!</span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
+		
 		<table>
-			<tr>
-				<td><img src="http://simexis.com/ss-data/cache/product/16/16-30/multi_language_for_laravel_5.x-1024x1024-thumb.png" height="62" width="62"></td>
-				<td><img src="../resources/img/achievments/fast.png" height="62" width="62"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><img src="http://www.clker.com/cliparts/8/2/3/7/P/w/tubito1.svg" height="62" width="62"></td>
-				
-			</tr>
+			<?php 
+			     $trCounter = 0;
+			     foreach ($achievement->badgetList as $badgets)
+			     {
+			         if($trCounter % 3 == 0 && $trCounter == 0)    
+			         {
+			             echo "<tr>";
+			         }
+			         if ($trCounter % 3 == 0 && $trCounter > 0)
+			         {
+			             echo "</tr><tr>";
+			         }
+			         echo "<td width:20px><img height='62' width='62' ";
+			         if (in_array($badgets, $achievement->userBadgetList)) 
+			         {
+			            echo "src = ".$achievement->getAchievementBadgetUrl($connection, $badgets)." ";
+			         }
+			         echo '" /></td>';
+			         
+			         $trCounter++;   
+			     }
+			     echo "</tr>";
+			     pg_close($connection);			 
+			?>
 		</table>
 	</div>
 	

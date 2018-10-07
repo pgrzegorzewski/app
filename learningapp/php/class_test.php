@@ -188,7 +188,6 @@ class Test
 			echo"</tr><tr>"	;
 			;
 			echo "</tr></table><br/><br/><br/><br/>";
-			//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 		}
 		
 	}

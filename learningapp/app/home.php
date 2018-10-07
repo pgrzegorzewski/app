@@ -5,6 +5,11 @@
         header('Location:index.php');
         exit();
     }
+    require 'connect.php';
+    include '../php/class_achievement.php';
+    $achievement = new Achievement();
+    $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
+    $achievement->getBadgetList($connection);
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +40,34 @@
 		<p style="cursor:pointer"><img src = "../resources/img/trophy.png" height = "50px" onmouseover="openLeaderboard()"/></p> <!-- &#9776; -->
 	</div>
 	<div id = 'leaderboard' class = 'leaderboard' onmouseleave = "closeLeaderboard()" >
-		<a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
-		Test 1000pts;<br>
-		Ania 325pts;<br>
-		Paweł 150pts;<br>
+		<span>Acievement badgets!</span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
+		
+		<table>
+			<?php 
+			     $trCounter = 0;
+			     foreach ($achievement->badgetList as $badgets)
+			     {
+			         if($trCounter % 3 == 0 && $trCounter == 0)    
+			         {
+			             echo "<tr>";
+			         }
+			         if ($trCounter % 3 == 0 && $trCounter > 0)
+			         {
+			             echo "</tr><tr>";
+			         }
+			         echo "<td width:20px><img height='62' width='62' ";
+			         if (in_array($badgets, $achievement->userBadgetList)) 
+			         {
+			            echo "src = ".$achievement->getAchievementBadgetUrl($connection, $badgets)." ";
+			         }
+			         echo '" /></td>';
+			         
+			         $trCounter++;   
+			     }
+			     echo "</tr>";
+			     pg_close($connection);
+			?>
+		</table>
 	</div>
 	<header class ="header">
 		<table width = 100%>
@@ -91,32 +120,6 @@
 					
 					$_SESSION["used_question_ids"][] =  0;
 					
-					/*function checkAnswear($button, $id)
-					{
-						$check = $button.attr("id");
-						$id = id;
-					
-						$sql = 'SELECT
-									qa.qestion_answear_text,																
-									qa.is_true																				
-								FROM questions.tbl_question_answear qa														
-								INNER JOIN questions.tbl_question q			ON		q.question_id = qa.question_id 			
-								WHERE 																						
-									q.question_id = $id																		
-									AND qa.question_answear_order = $check';
-					
-						$result = $conn -> query($sqlQuestion);
-					
-						$row = $result -> fetch_assoc();
-						if($row["is_true"] == $check)
-						{
-							alert("You are right!");
-						}
-						else{
-							alert("You dumbass :(");
-						}
-					
-					};*/
 					
 					require 'connect.php';
 					//$conn = mysqli_connect($servername, $username, $password, $dbname);
