@@ -28,8 +28,8 @@
         	<form action = "login.php" method = "post">
         	
             	<div class="form">Login:<br /><input type="text" name="login" /><br/></div>
-            	<div class="form">Password:<br /> <input type="password" name="password" /><br /></div>
-            	<div class="form"><input type = "submit" value = "login" /></div>
+            	<div class="form">Password:<br /> <input type="password" name="password" /><br /><br/></div>
+            	<div class="form"><input id="login_btn" type = "submit" value = "Login" /></div>
         	
         	</form>
         	<?php 
@@ -42,7 +42,9 @@
         	<div class="form">
         		<br/><br />
         		<h5>Nie posiadasz jeszcze konta?</h5>
-        		<br /><a href = "register.php"><b>Zarejestruj</b></a>
+        		<br />
+        		<input id="register_btn" type="submit" value="Zarejestruj" 
+    			onclick="window.location='register.php';" /> 
         	</div>
         	
     	</div>

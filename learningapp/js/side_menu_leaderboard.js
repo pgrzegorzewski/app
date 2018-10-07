@@ -1,6 +1,6 @@
 function openLeaderboard()
 {
-	document.getElementById("leaderboard").style.width = "250px";
+	document.getElementById("leaderboard").style.width = "300px";
 	document.getElementById("leaderboard").style.border = "2px solid #CAAB15";
 	
 }
