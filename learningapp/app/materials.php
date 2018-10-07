@@ -55,6 +55,10 @@
 			         {
 			            echo "src = ".$achievement->getAchievementBadgetUrl($connection, $badgets)." ";
 			         }
+			         else 
+			         {
+			             echo 'src = "../resources/img/question_mark.png"';
+			         }
 			         echo '" /></td>';
 			         
 			         $trCounter++;   

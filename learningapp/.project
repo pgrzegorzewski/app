@@ -33,6 +33,11 @@
 			<location>C:/xampp/htdocs/app/learningapp/resources/img/awards.png</location>
 		</link>
 		<link>
+			<name>resources/img/question_mark.png</name>
+			<type>1</type>
+			<location>C:/xampp/htdocs/app/learningapp/resources/img/question_mark.png</location>
+		</link>
+		<link>
 			<name>resources/img/achievments/fast.png</name>
 			<type>1</type>
 			<location>C:/xampp/htdocs/app/learningapp/resources/img/achievments/fast.png</location>
