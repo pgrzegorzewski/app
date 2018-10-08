@@ -3,17 +3,17 @@ var result = 0;
 var answears = 0;
 var startTime = 0;
 var endTIme = 0;
-var FAST_AWARD = 150;
+var FAST_AWARD = 18;
+var FAST_AWARD_ID = 4;
+var hasUserAchievement= 0;
 
 $(document).ready(function(){
     $(".category").on("click" ,function(){
     	scrolled = scrolled + 520;
     	$('html, body').animate({
         scrollTop:  scrolled
-	});
-    
-});
-    
+    	});    
+    });
 });
 
 window.onload = function()
@@ -39,6 +39,7 @@ window.onload = function()
 			categoryIdPass(this.id);
 		}
 	}
+	this.hasUserAchievementFast('test_init');
 	this.startTime = new Date().getTime();
 }
 
@@ -60,8 +61,6 @@ function blockCategoryButtons(buttons)
 	}
 	
 }
-
-
 
 function categoryIdGet()
 {
@@ -177,8 +176,9 @@ function printResult()
 	document.getElementById('result_award').hidden = false;
 	document.getElementById('result_text').innerText = 'Twój wynik ' + result + '/' + answears + ' ' +  resultComment + '\nZrobiłeś to w ' + ((this.endTime - this.startTime) / 1000) + 'seconds';
 	
-	if(result == answears && ((this.endTime - this.startTime) / 1000) < this.FAST_AWARD)
+	if(result == answears && ((this.endTime - this.startTime) / 1000) < this.FAST_AWARD && hasUserAchievement == 0)
 	{
+		hasUserAchievementFast('result_check');
 		$('#award_FAST').show('slow');
 		setTimeout(function(){
 			  $('#award_img').show('slow')
@@ -186,4 +186,28 @@ function printResult()
 		closeModal();		
 	}
 	
+}
+
+function hasUserAchievementFast(event)
+{
+	$.ajax({
+		type: "POST",
+		url: "../php/test_ajax/user_achievement_fast_check.php",
+		data:{
+			user: username,
+			achievement: FAST_AWARD_ID,
+			event: event
+		},
+		success: function(data){
+			
+			if(data >= 1)
+			{
+				hasUserAchievement = 1;
+			}
+			else
+			{
+				hasUserAchievement = 0;
+			}
+		}
+	})
 }

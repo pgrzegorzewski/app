@@ -26,7 +26,9 @@
 	<script type="text/javascript" src="../js/class_7_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 </head>
-
+<script type="text/javascript">
+    var username ='<?php echo $_SESSION['user'];?>';
+</script>
 <body>
 
 <div class="container-fluid">
@@ -155,14 +157,14 @@
 		<div class ='row'>
 				<div class='col-sm-12' id = 'result_div'>	
 					<h4 id= 'result_text' hidden = 'true'></h4>
-					<h4 id= 'result_award' hidden = 'true' style ="text-align:center;"><!-- Nowa naklejka!<img src="https://www.1englishteacher.com/wp-content/uploads/2016/08/cropped-logo_lengua.png" height="62" width="62"> --></h4>
+					<h4 id= 'result_award' hidden = 'true' style ="text-align:center;"></h4>
 				</div>
 		</div>
 				
 	</section>
 	<div id="award_FAST" class="achievement_modal">
         <div class="modal-content">
-       		<table id="#modal_table">
+       		<table id="modal_table">
        			<tr>
        				<td rowspan="2">
        					<img src ='../resources/img/awards.png' width="90px" height = "100px" class ="trumpets"/>
@@ -185,7 +187,7 @@
     </div>
     
 	<div class="footer">
-		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
+		© 2018 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 	</div>
 </div>
 

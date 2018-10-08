@@ -10,7 +10,6 @@ if(isset($_POST['question_answer_id']))
     $answer_id = $_POST['question_answer_id'];   
     $username = $_POST['user'];
     
-    
     $result =  pg_query($connection, "SELECT is_true FROM questions.tbl_question_answer WHERE question_answer_id = ".$answer_id."");
     $row = pg_fetch_assoc($result);
     

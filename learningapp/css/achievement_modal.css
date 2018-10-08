@@ -1,11 +1,14 @@
-#award_FAST{
+#award_FAST
+{
 	display:none;
 }
 
-.modal-content {
+.modal-content 
+{
     position: fixed; 
     z-index: 1000; 
     horizontal-align: center;
+    text-align:center;
     width: 500px; 
     height: 250px; 
     top: 50%;
