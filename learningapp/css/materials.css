@@ -15,7 +15,22 @@ table td button
 	background-color:black;
 }
 
-#material
+.video
 {
 	text-align:center;
+}
+
+#material
+{
+	padding:20px;
+}
+
+h3
+{
+	text-align:center;
+}
+
+h3, h4, h5
+{
+	color:#AFC2D1;
 }
