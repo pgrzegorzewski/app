@@ -42,5 +42,10 @@
 			<type>1</type>
 			<location>C:/xampp/htdocs/app/learningapp/resources/img/achievments/fast.png</location>
 		</link>
+		<link>
+			<name>resources/img/materials/Tablica_Mendelejewa.png</name>
+			<type>1</type>
+			<location>C:/xampp/htdocs/app/learningapp/resources/img/materials/Tablica_Mendelejewa.png</location>
+		</link>
 	</linkedResources>
 </projectDescription>
