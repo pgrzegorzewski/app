@@ -1,6 +1,6 @@
 <?php
 
-	$categoryId =$_POST['categoryId'];
+	$categoryId = $_POST['categoryId'];
 	
 	$test2 = printTest($categoryId);
 	echo $test2;

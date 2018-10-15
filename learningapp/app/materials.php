@@ -21,7 +21,7 @@
 	<link rel="StyleSheet" href="../css/materials.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/questionnaire.js"></script>
-	<script type="text/javascript" src="../js/question.js"></script>
+	<script type="text/javascript" src="../js/material.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 </head>
 
@@ -35,7 +35,7 @@
 		<p style="cursor:pointer"><img src = "../resources/img/trophy.png" height = "50px" onmouseover="openLeaderboard()"/></p> <!-- &#9776; -->
 	</div>
 	<div id = 'leaderboard' class = 'leaderboard' onmouseleave = "closeLeaderboard()" >
-		<span>Acievement badgets!</span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
+		<span>Achievement badgets!</span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
 		
 		<table>
 			<?php 
@@ -114,19 +114,19 @@
     				<table>
     					<tr>
     						<td>
-    							<button>Klasa 4</button>
+    							<button onclick="setClass('4')">Klasa 4</button>
     						</td>
     						<td>
-    							<button>Klasa 5</button>
+    							<button onclick="setClass('5')">Klasa 5</button>
     						</td>
     						<td>
-    							<button>Klasa 6</button>
+    							<button onclick="setClass('6')">Klasa 6</button>
     						</td>
     						<td>
-    							<button>Klasa 7</button>
+    							<button onclick="setClass('7')">Klasa 7</button>
     						</td>
     						<td>
-    							<button>Klasa 8</button>
+    							<button onclick="setClass('8')">Klasa 8</button>
     						</td>
     					</tr>
     				</table>	
@@ -135,24 +135,29 @@
     				<table>
     					<tr>
     						<td>
-    							<button>Angielski</button>
+    							<button onclick="setSubject('english')">Angielski</button>
     						</td>
     						<td>
-    							<button>Matematyka</button>
+    							<button onclick="setSubject('maths')">Matematyka</button>
     						</td>
     						<td>
-    							<button>Biologia</button>
+    							<button onclick="setSubject('biology')">Biologia</button>
     						</td>
     						<td>
-    							<button>Polski</button>
+    							<button onclick="setSubject('polish')">Polski</button>
     						</td>
     						<td>
-    							<button>Chemia</button>
+    							<button onclick="setSubject('chemistry')">Chemia</button>
     						</td>
     					</tr>			
     				</table>	
 				</div>		
 				
+				<br/><br/>
+				
+				<div id = "material">
+				
+				</div>
 				
 			</div>
 
