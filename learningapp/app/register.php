@@ -59,6 +59,8 @@
         
         $password_hashed = password_hash($password, PASSWORD_DEFAULT);
         
+        $class = $_POST['class'];
+        
         if(!isset($_POST['terms_and_conditions']))
         {
             $success = false;
@@ -106,7 +108,7 @@
                 
                 if($success == true)
                 {
-                    @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', '$first_name', '$last_name', '$email')"); 
+                    @pg_query($connection, "SELECT * FROM usr.sp_user_create('$nick', '$password_hashed', '$first_name', '$last_name', '$class', '$email')"); 
                     $_SESSION['registrationSuccessful'] = true;
                     header('Location: register_success.php');
                 }
@@ -189,6 +191,9 @@
             				unset($_SESSION['e_password']);
             			}
 		            ?>
+		            
+		            Klasa: <br />
+		            <input type="number" name="class" min="4" max="8" value = "4"><br />
 		                   	 		
         	 		Email: <br />
         	 		<input type = "email" name="email"><br />
