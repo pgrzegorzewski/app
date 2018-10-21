@@ -114,7 +114,7 @@
 		<section class = "section">
 			<div id ="welcome_div">
 				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4> 
-				<p>Chaiłbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś w właściwym miejscu;)!!!<br><br><br></p>				
+				<p>Chciałbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś w właściwym miejscu;)!!!<br><br><br></p>				
 			</div>
 
 			<div class ="row">
