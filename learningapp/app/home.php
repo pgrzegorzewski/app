@@ -7,9 +7,13 @@
     }
     require 'connect.php';
     include '../php/class_achievement.php';
+    include '../php/class_user.php';
     $achievement = new Achievement();
     $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
     $achievement->getBadgetList($connection);
+    
+    $loggedUser = new User();
+    $_SESSION['class_number'] = $loggedUser->userClassNumberGet($connection, $_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +117,7 @@
 		</div>
 		<section class = "section">
 			<div id ="welcome_div">
-				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4> 
+				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4>
 				<p>Chciałbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś we właściwym miejscu;)!!!<br><br><br></p>				
 			</div>
 
@@ -159,7 +163,7 @@
 			</div>	
 		</section>
 		<div class="footer">
-		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
+		© 2018 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 		</div>
 	</div>
 
