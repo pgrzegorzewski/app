@@ -114,12 +114,12 @@
 		<section class = "section">
 			<div id ="welcome_div">
 				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4> 
-				<p>Chciałbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś w właściwym miejscu;)!!!<br><br><br></p>				
+				<p>Chciałbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś we właściwym miejscu;)!!!<br><br><br></p>				
 			</div>
 
 			<div class ="row">
 				<div class="col-sm-6">
-					<h4>Pyatnie dnia.</h4>
+					<h4>Pytanie dnia.</h4>
 					<?php
 					
 					$_SESSION["used_question_ids"][] =  0;
