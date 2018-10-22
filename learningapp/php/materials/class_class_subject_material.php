@@ -73,7 +73,7 @@ class ClassSubjectMaterial
                                   <br /><br />
                                   <h3>Typy rekacji chemicznych</h3>
                                   <table>
-                                        <tr style="background-color:#e8d47d; color:#28546C">
+                                        <tr style="background-color:#CAAB15; color:#28546C">
                                             <td>Zapis reakcji</td>
                                             <td>Typ reakcji</td>
                                         </tr>

@@ -95,11 +95,11 @@
 			<li>
 				<a href ='#'>Tests</a>
 				<ul>
-					<li><a href="#">Personality</a></li>
-					<li><a href="#">Cultural</a></li>
-					<li><a href="#">Science</a></li>
-					<li><a href="#" id = "visited">Entertaining</a></li>
-					<li><a href="#">Klasa 8</a></li>
+					<li id = 'class_4'><a href="#">Klasa 4</a></li>
+					<li id = 'class_5'><a href="#">Klasa 5</a></li>
+					<li id = 'class_6'><a href="#">Klasa 6</a></li>
+					<li><a href="#" id = "visited">Klasa 7</a></li>
+					<li id = 'class_8'><a href="#">Klasa 8</a></li>
 				</ul>
 			</li>
 			<li>

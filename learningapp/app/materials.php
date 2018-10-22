@@ -88,11 +88,11 @@
 				<li>
 					<a href ='#'>Testy</a>
 					<ul>
-						<li><a href="#">Klasa 4</a></li>
-						<li><a href="#">Klasa 5</a></li>
-						<li><a href="#">Klasa 6</a></li>
-						<li><a href="class_7_test.php">Klasa 7</a></li>
-						<li><a href="#">Klasa 8</a></li>
+						<li id = 'class_4'><a href="#">Klasa 4</a></li>
+						<li id = 'class_5'><a href="#">Klasa 5</a></li>
+						<li id = 'class_6'><a href="#">Klasa 6</a></li>
+						<li id = 'class_7'><a href="class_7_test.php">Klasa 7</a></li>
+						<li id = 'class_8'><a href="#">Klasa 8</a></li>
 					</ul>
 				</li>
 				<li>

@@ -32,6 +32,7 @@
 	<script type="text/javascript" src="../js/questionnaire.js"></script>
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
+	<script type="text/javascript" src="../js/user.js"></script>
 </head>
 
 <body>
@@ -84,7 +85,7 @@
 					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
 				</td>
 				<td style = "text-align:right">
-					<span>Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
+					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
 				</td>
 			</tr>
 		</table>
@@ -97,11 +98,11 @@
 				<li>
 					<a href ='#'>Testy</a>
 					<ul>
-						<li><a href="#">Klasa 4</a></li>
-						<li><a href="#">Klasa 5</a></li>
-						<li><a href="#">Klasa 6</a></li>
-						<li><a href="class_7_test.php">Klasa 7</a></li>
-						<li><a href="#">Klasa 8</a></li>
+						<li id = 'class_4'><a href="#">Klasa 4</a></li>
+						<li id = 'class_5'><a href="#">Klasa 5</a></li>
+						<li id = 'class_6'><a href="#">Klasa 6</a></li>
+						<li id = 'class_7'><a href="class_7_test.php">Klasa 7</a></li>
+						<li id = 'class_8'><a href="#">Klasa 8</a></li>
 					</ul>
 				</li>
 				<li>
