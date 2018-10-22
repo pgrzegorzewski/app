@@ -70,7 +70,30 @@ class ClassSubjectMaterial
                                         <img src="../resources/img/materials/Tablica_Mendelejewa.png" width="1100" />
                                     </div>     
                                   </div>
-                                  
+                                  <br /><br />
+                                  <h3>Typy rekacji chemicznych</h3>
+                                  <table>
+                                        <tr style="background-color:#e8d47d; color:#28546C">
+                                            <td>Zapis reakcji</td>
+                                            <td>Typ reakcji</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>A + B -> AB</b></td>
+                                            <td>Reakcja syntezy - z dwóch lub więcej substancji prostych powstaje substancja złożona</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>AB -> A + B</b></td>
+                                            <td>Reakcja analizy (rozkładu) - z substancji złożona rozkładana jest na jedną lub więcej substancj prostych</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>AB + C -> AC + B</b></td>
+                                            <td>Reakcja wymiany pojedynczej - z dwóch lub więcej substancji powstają inne, przy czym jedna z nich jest prostsza</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>AB + CD -> AD + CB</b></td>
+                                            <td>Reakcja wymiany podwójnej - z dwóch substancji powstają inne, przy czym wszystkie reagenty są substancjami złożonymi.</td>
+                                        </tr>
+                                    </table>
                                 ';
     }
     
