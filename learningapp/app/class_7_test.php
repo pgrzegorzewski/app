@@ -25,6 +25,7 @@
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/class_7_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
+	<script type="text/javascript" src="../js/user.js"></script>
 </head>
 <script type="text/javascript">
     var username ='<?php echo $_SESSION['user'];?>';
@@ -81,7 +82,7 @@
 					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
 				</td>
 				<td style = "text-align:right">
-					<span>Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
+					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
 				</td>
 			</tr>
 		</table>
@@ -95,11 +96,11 @@
 			<li>
 				<a href ='#'>Tests</a>
 				<ul>
-					<li id = 'class_4'><a href="#">Klasa 4</a></li>
-					<li id = 'class_5'><a href="#">Klasa 5</a></li>
-					<li id = 'class_6'><a href="#">Klasa 6</a></li>
-					<li><a href="#" id = "visited">Klasa 7</a></li>
-					<li id = 'class_8'><a href="#">Klasa 8</a></li>
+					<li class = 'class_4'><a href="#">Klasa 4</a></li>
+					<li class = 'class_5'><a href="#">Klasa 5</a></li>
+					<li class = 'class_6'><a href="#">Klasa 6</a></li>
+					<li class = 'class_7'><a href="#" id = "visited">Klasa 7</a></li>
+					<li class = 'class_8'><a href="#">Klasa 8</a></li>
 				</ul>
 			</li>
 			<li>
@@ -136,7 +137,7 @@
 								<button  name = '3' id = '6' class = 'category btn' >Historia</button>
 							</td>
 							<td>
-								<button t name = '4' id = '4' class = 'category btn' >Lektury</button>
+								<button name = '4' id = '4' class = 'category btn' >Lektury</button>
 							</td>
 						</tr>
 					</table>
