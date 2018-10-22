@@ -173,6 +173,17 @@ ol > li
     position:relative;
 }
 
+.userClassElement
+{
+	background-color: #4D658D;
+	color: #AFC2D1;
+}
+
+.userClassElement a
+{
+	color: #AFC2D1;
+}
+
 ol > li:hover
 {
 	background-color:#CAAB15;
