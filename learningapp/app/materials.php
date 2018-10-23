@@ -115,19 +115,19 @@
     				<table>
     					<tr>
     						<td>
-    							<button class = 'class_4' onclick="setClass('4')">Klasa 4</button>
+    							<button class = 'class_4' onclick="setClass(this, '4')">Klasa 4</button>
     						</td>
     						<td>
-    							<button class = 'class_5' onclick="setClass('5')">Klasa 5</button>
+    							<button class = 'class_5' onclick="setClass(this, '5')">Klasa 5</button>
     						</td>
     						<td>
-    							<button class = 'class_6' onclick="setClass('6')">Klasa 6</button>
+    							<button class = 'class_6' onclick="setClass(this, '6')">Klasa 6</button>
     						</td>
     						<td>
-    							<button class = 'class_7' onclick="setClass('7')">Klasa 7</button>
+    							<button class = 'class_7' onclick="setClass(this, '7')">Klasa 7</button>
     						</td>
     						<td>
-    							<button class = 'class_8' onclick="setClass('8')">Klasa 8</button>
+    							<button class = 'class_8' onclick="setClass(this, '8')">Klasa 8</button>
     						</td>
     					</tr>
     				</table>	
@@ -136,19 +136,19 @@
     				<table>
     					<tr>
     						<td>
-    							<button onclick="setSubject('english')">Angielski</button>
+    							<button onclick="setSubject(this, 'english')">Angielski</button>
     						</td>
     						<td>
-    							<button onclick="setSubject('maths')">Matematyka</button>
+    							<button onclick="setSubject(this, 'maths')">Matematyka</button>
     						</td>
     						<td>
-    							<button onclick="setSubject('biology')">Biologia</button>
+    							<button onclick="setSubject(this, 'biology')">Biologia</button>
     						</td>
     						<td>
-    							<button onclick="setSubject('polish')">Polski</button>
+    							<button onclick="setSubject(this, 'polish')">Polski</button>
     						</td>
     						<td>
-    							<button onclick="setSubject('chemistry')">Chemia</button>
+    							<button onclick="setSubject(this, 'chemistry')">Chemia</button>
     						</td>
     					</tr>			
     				</table>	
