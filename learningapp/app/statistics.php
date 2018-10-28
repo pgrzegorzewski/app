@@ -18,12 +18,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
-	<link rel="StyleSheet" href="../css/materials.css" />
+	<link rel="StyleSheet" href="../css/statistics.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
-	<script type="text/javascript" src="../js/questionnaire.js"></script>
-	<script type="text/javascript" src="../js/material.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 	<script type="text/javascript" src="../js/user.js"></script>
+	<script type="text/javascript" src="../js/statistics.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 </head>
 
 <body>
@@ -110,7 +110,10 @@
 		<section class = "section">
 			<div id ="welcome_div">
 				<h4>Statystyki</h4> 
-					
+				<div id ="user_answer_statistics_div">
+					Answers statistics
+					<canvas id="user_answer_statistics"></canvas>
+				</div>
 			</div>
 
 		</section>
