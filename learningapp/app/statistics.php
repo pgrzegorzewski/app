@@ -1,23 +1,13 @@
 <?php 
     session_start();
-    if(isset($_SESSION['user']) != true && isset($_SESSION['is_logged']) != true)
-    {
-        header('Location:index.php');
-        exit();
-    }
-    require 'connect.php';
     include '../php/class_achievement.php';
-    include '../php/class_user.php';
     $achievement = new Achievement();
     $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
     $achievement->getBadgetList($connection);
-    
-    $loggedUser = new User();
-    $_SESSION['class_number'] = $loggedUser->userClassNumberGet($connection, $_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
-<html lang = "pl">
+<html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -28,9 +18,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
+	<link rel="StyleSheet" href="../css/materials.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/questionnaire.js"></script>
-	<script type="text/javascript" src="../js/question.js"></script>
+	<script type="text/javascript" src="../js/material.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 	<script type="text/javascript" src="../js/user.js"></script>
 </head>
@@ -65,7 +56,7 @@
 			         {
 			            echo "src = ".$achievement->getAchievementBadgetUrl($connection, $badgets)." ";
 			         }
-			         else
+			         else 
 			         {
 			             echo 'src = "../resources/img/question_mark.png"';
 			         }
@@ -74,7 +65,7 @@
 			         $trCounter++;   
 			     }
 			     echo "</tr>";
-			     pg_close($connection);
+			     pg_close($connection);			 
 			?>
 		</table>
 	</div>
@@ -109,65 +100,23 @@
 					<a href ='add_test.php'>Dodaj własny test</a>
 				</li>
 				<li>
-					<a href ='materials.php'>Materiały</a>
+					<a href = 'materials.php'>Materiały</a>
 				</li>
-				<li>
-					<a href ='statistics.php'>Statystyki</a>
+				<li id = "visited">
+					<a href ='#' >Statystyki</a>
 				</li>
-				<!--  <li>
-					<a href ='#'>O autorach</a>
-				</li>-->
 			</ol>
 		</div>
 		<section class = "section">
 			<div id ="welcome_div">
-				<h4>Hej <?php echo $_SESSION['user'] ?>! Witamy ponownie w Qu¿zzy!</h4>
-				<p>Chciałbys przygotować się do klasówki? Powtórzyć materiał z ostatnich lekcji? Poszerzyć swoją wiedzę<br><br>W takim razie jesteś we właściwym miejscu;)!!!<br><br><br></p>				
+				<h4>Statystyki</h4> 
+				
+				
 			</div>
 
-			<div class ="row">
-				<div class="col-sm-6">
-					<h4>Pytanie dnia.</h4>
-					<?php
-					
-					$_SESSION["used_question_ids"][] =  0;
-					
-					
-					require 'connect.php';
-					//$conn = mysqli_connect($servername, $username, $password, $dbname);
-					$conn_string = "host=localhost port=5432 dbname=quizzy user=postgres password=postgres";
-					$conn= pg_connect($conn_string);
-					if(!$conn){
-						$error = error_get_last();
-						echo "Connection failed. Error was: ". $error['message']. "\n";
-					}
-					require '../php/class_question.php';	
-					$question = new Question();
-					$question -> drawRandomQuestion($conn);
-					//drawRandomQuestion($conn);
-					?>
-				</div>
-				<div class="col-sm-6">
-					<div class = "row">
-						<div class = "col-sm-16 answear_header" id ="answearHeader"></div>
-					</div>
-					<div class = "row">
-						<div class = "col-sm-1 "></div>
-						<div class = "col-sm-2 answear_img"><p id = "answear_img"></p></div>
-						<div class ="col-sm-4 answear"><p id = "answear"></p></div>
-					</div>
-					<div class = "row">
-						<div class = "col-sm-1 "></div>
-						<div class = "col-sm-2 answear_img"><p><img id="refresh_img" height=50px; width=50px; src = "../resources/img/refresh.png" hidden = true; onclick = "drawNextQuestion()" ></p></div>
-						<div class ="col-sm-4 answear"><p id = "refresh"></div>
-					</div>
-					
-									
-				</div>
-			</div>	
 		</section>
 		<div class="footer">
-		© 2018 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
+		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 		</div>
 	</div>
 

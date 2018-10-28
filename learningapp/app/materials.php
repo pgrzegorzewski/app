@@ -102,6 +102,9 @@
 				<li id = "visited">
 					<a href ='#' >Materiały</a>
 				</li>
+				<li>
+					<a href ='statistics.php'>Statystyki</a>
+				</li>
 			</ol>
 		</div>
 		<section class = "section">

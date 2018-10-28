@@ -57,6 +57,9 @@ elo
 				<li>
 					<a href ='materials.php'>Materiały</a>
 				</li>
+				<li>
+					<a href ='statistics.php'>Statystyki</a>
+				</li>
 				<!--  <li>
 					<a href ='#'>O autorach</a>
 				</li>-->
