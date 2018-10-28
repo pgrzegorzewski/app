@@ -110,8 +110,7 @@
 		<section class = "section">
 			<div id ="welcome_div">
 				<h4>Statystyki</h4> 
-				
-				
+					
 			</div>
 
 		</section>
