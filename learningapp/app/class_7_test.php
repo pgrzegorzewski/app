@@ -22,10 +22,11 @@
 	<link rel="StyleSheet" href="../css/class_7_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />	
 	<link rel="StyleSheet" href="../css/achievement_modal.css" />
+	<script type="text/javascript" src="../js/user.js"></script>
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/class_7_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
-	<script type="text/javascript" src="../js/user.js"></script>
+
 </head>
 <script type="text/javascript">
     var username ='<?php echo $_SESSION['user'];?>';
@@ -132,7 +133,7 @@
 								<button  name = '1' id = '4' class = 'category btn' >Chemia</button>
 							</td>
 							<td>
-								<button name = '2' id = '5'  class = 'category btn'>Angielski</button>
+								<button name = '2' id = '5'  class = 'category btn' value = 'test'>Angielski</button>
 							</td>
 						</tr>
 						<tr>

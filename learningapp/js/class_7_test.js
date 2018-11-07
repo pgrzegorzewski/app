@@ -18,7 +18,6 @@ $(document).ready(function(){
 
 window.onload = function()
 {
-	
 	var x = document.getElementsByClassName("category");
 	var idButton = 0;
 	for(i = 0; i < x.length; i++)
