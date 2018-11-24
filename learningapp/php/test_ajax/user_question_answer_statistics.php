@@ -10,7 +10,7 @@ if(isset($_SESSION['user']))
     
     $result =  pg_query($connection, " SELECT * FROM questions.tf_user_question_answers_per_date_summary (
                                       '2018-09-01',
-                                      '2018-11-01',
+                                      '2018-12-01',
                                       '".$username."')");
     $data = array();
     

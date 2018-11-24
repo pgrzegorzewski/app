@@ -113,7 +113,7 @@ function scrollDownToNextQuestion(isImage)
 {
 	var scrollLenght = 0;
 	if(isImage == 0){
-		scrollLenght = 280;
+		scrollLenght = 250;
 	}
 	else{
 		scrollLenght = 887;
