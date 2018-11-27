@@ -150,10 +150,10 @@ elo
     <br>
 	<table>
 		<tr>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}A' hidden = true><span class="questionTitle">A</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}A"></td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}B' hidden = true><span class="questionTitle">B</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}B"></td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}C' hidden = true><span class="questionTitle">C</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}C"></td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}D' hidden = true><span class="questionTitle">D</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}D"></td>
+			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}A' hidden = true><span class="questionTitle">A</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}A"><br /> <input type ="radio" name="{{id}}" value = "Aprawda">prawda</td>
+			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}B' hidden = true><span class="questionTitle">B</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}B"><br /> <input type ="radio" name="{{id}}" value = "Bprawda">prawda</td>
+			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}C' hidden = true><span class="questionTitle">C</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}C"><br /> <input type ="radio" name="{{id}}" value = "Cprawda">prawda</td>
+			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}D' hidden = true><span class="questionTitle">D</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}D"><br /> <input type ="radio" name="{{id}}" value = "Dprawda">prawda</td>
 		</tr>
 	</table>
 </script>
