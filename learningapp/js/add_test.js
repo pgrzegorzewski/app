@@ -54,16 +54,22 @@ function add()
 	var questions = new Array();
 	var questionAnswers = new Array();
 	var iterator = 0;
+	var answerIterator = 0;
 	$('.newQuestion').each(function(){
 		questions[iterator] = $('#'+(iterator+1)+' input[class="testQuestion"]').val();
-	    var answerIterator = 0;
-		$('.questionAnswear'+(iterator+1)).each(function(){
-			questionAnswers[0] = new Array();
-			questionAnswer[0][0] = iterator+1;
-			questionAnswer[0][0] = $('#'+(iterator+1)+' input[class="testQuestion"]').val();
+		var answerInnerIterator = 0;
+		$('#question_answers_container_'+(iterator+1)+ ' .questionAnswer' + (iterator+1)+':visible').each(function(){
+			console.log('elooo');
+			questionAnswers[answerIterator] = new Array();
+			questionAnswers[answerIterator][0] = iterator+1;
+			questionAnswers[answerIterator][1] = $('#answer' +(iterator+1)+ '_' +(answerInnerIterator+1)+ '>  input[class="question_answer_input"]').val();
+			answerIterator++;
+			answerInnerIterator++;
 		});
 		iterator++;
 
 	 });
+	console.log(questionAnswers);
+	console.log(questions);
 }
 
