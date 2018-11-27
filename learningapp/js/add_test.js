@@ -59,10 +59,11 @@ function add()
 		questions[iterator] = $('#'+(iterator+1)+' input[class="testQuestion"]').val();
 		var answerInnerIterator = 0;
 		$('#question_answers_container_'+(iterator+1)+ ' .questionAnswer' + (iterator+1)+':visible').each(function(){
-			console.log('elooo');
 			questionAnswers[answerIterator] = new Array();
 			questionAnswers[answerIterator][0] = iterator+1;
 			questionAnswers[answerIterator][1] = $('#answer' +(iterator+1)+ '_' +(answerInnerIterator+1)+ '>  input[class="question_answer_input"]').val();
+			questionAnswers[answerIterator][2] = $('#answer' +(iterator+1)+ '_' +(answerInnerIterator+1)+ '>  input[type="radio"]').is(':checked');
+			questionAnswers[answerIterator][3] = answerInnerIterator+1;
 			answerIterator++;
 			answerInnerIterator++;
 		});
@@ -71,5 +72,22 @@ function add()
 	 });
 	console.log(questionAnswers);
 	console.log(questions);
+	//questionAnswers = json_encode(questionAnswers);
+	//questions = json_encode(questions);
+	$.ajax({
+		type: "POST",
+		url: "../php/test_ajax/add_new_test.php",
+		data:{
+			questionAnswers: questionAnswers,
+			questions: questions,
+			testName: testName,
+			testCategory: testCategory,
+			testClass: testClass
+			
+		},
+		success: function(data){
+			console.log(data);
+		}
+	})
 }
 
