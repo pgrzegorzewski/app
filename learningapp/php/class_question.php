@@ -30,6 +30,7 @@ class Question
 										ON x.question_id = q.question_id
 										INNER JOIN questions.tbl_question_answer qa			ON				qa.question_id = x.question_id
 										WHERE qa.question_id = q.question_id
+                                        ORDER BY qa.question_answer_order
 										--ORDER BY random()
 										";
     	

@@ -32,8 +32,6 @@ window.onload = function()
 			this.style.color = "white"
 			document.getElementById('test_title').innerText = document.getElementById('test_title').innerText + ' ' + this.innerText.toLowerCase() + ' test';
 			document.getElementById('test_title').hidden = false;
-			//document.getElementById("test_body").hidden = false;
-			//document.getElementById("test_body_answear").hidden = false;
 		
 			categoryIdPass(this.id);
 		}
@@ -89,10 +87,14 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 			
 			if(this.is_true == 1){
 				image.setAttribute("src", "../resources/img/correct.png");
+				button.classList.remove('btn-info');
+				button.classList.add('btn-success');
 				result = result+1;
 			}
 			else{
 				image.setAttribute("src", "../resources/img/error.png");
+				button.classList.remove('btn-info');
+				button.classList.add('btn-danger');
 			}
 			blockTestButtons(idValue);
 			document.getElementById(id).innerText = drawAnswearAlert(this.is_true);
@@ -102,7 +104,6 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 	
 	
 	blockTestButtons(idValue);
-	changeClassButton(button, button.id);
 	answears = answears + 1;
 	scrollDownToNextQuestion(isQuestionImage);
 	if(answears == size)

@@ -26,15 +26,18 @@ function checkAnswer(button)
 			
 			if(this.isTrue == 1){
 				image.setAttribute("src", "../resources/img/correct.png");	
+				button.classList.remove('btn-info');
+				button.classList.add('btn-success');
 			}
 			else{
 				image.setAttribute("src", "../resources/img/error.png");
+				button.classList.remove('btn-info');
+				button.classList.add('btn-danger');
 			}
 			
 			blockButtons();
 			document.getElementById("answear").innerText = drawAnswearAlert(this.isTrue);
 			document.getElementById("answear_img").appendChild(image);
-			changeClassButton(button, isTrue);
 			createButtonDrawAgain();
 		}
 	})	
