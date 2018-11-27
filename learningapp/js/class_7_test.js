@@ -9,7 +9,7 @@ var hasUserAchievement= 0;
 
 $(document).ready(function(){
     $(".category").on("click" ,function(){
-    	scrolled = scrolled + 520;
+    	scrolled = scrolled + 660;
     	$('html, body').animate({
         scrollTop:  scrolled
     	});    
@@ -113,7 +113,7 @@ function scrollDownToNextQuestion(isImage)
 {
 	var scrollLenght = 0;
 	if(isImage == 0){
-		scrollLenght = 250;
+		scrollLenght = 215;
 	}
 	else{
 		scrollLenght = 887;

@@ -166,7 +166,7 @@ class Test
 		if($result > 0){
 			
 			echo "<table id = \"question".$row["question_order"]."\" align = center >
-											<tr>";
+											<tr style = \" height:120px\";>";
 			
 			while ($row = pg_fetch_assoc($result)){	
 				if($row["is_answer_image"] == 0){
@@ -185,9 +185,9 @@ class Test
 				
 			}
 			
-			echo"</tr><tr>"	;
+			echo"</tr>"	;
 			;
-			echo "</tr></table><br/><br/><br/><br/>";
+			echo "</tr></table>";//<br/><br/><br/><br/>";
 		}
 		
 	}
@@ -204,12 +204,13 @@ class Test
 	public function generateAnswearDivs($size)
 	{
 
+	    echo "<br /><br />";
 		for($x = 0; $x < $size; $x++)
 		{
 			echo"
 					<div id = \"answear ".$x."\">
 						<div class = \"row\">
-							<div class = \"col-sm-16 answear_header\" id =\"answearHeader\"></div>
+							<div style = \" height:37px\"; class = \"col-sm-16 answear_header\" id =\"answearHeader\"></div>
 						</div>
 						<div class = \"row\">
 							<div class = \"col-sm-1 \"></div>
