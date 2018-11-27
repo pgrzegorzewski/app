@@ -18,7 +18,7 @@
 </head>
 
 <body>
-elo
+
 <div class="container-fluid">
 	
 	<div class= "sidemenu_2">
@@ -76,38 +76,41 @@ elo
 					<span class="questionTitle">Nazwa testu*:</span><br>
                     <input class = "testGeneralInformation" id = "testName" type ="text" name ="test_name"><br><br>
                     <span class="questionTitle">Wybierz klasę*:</span><br>
-                    <input type ="radio" name ="testTypeChoose" value = "quiz">Klasa 7
-                    <input type ="radio" name ="testTypeChoose" value ="test"> Klasa 8
+                    <input type ="radio" name ="testClassChoose" value = "4">Klasa 4
+                    <input type ="radio" name ="testClassChoose" value = "5">Klasa 5
+                    <input type ="radio" name ="testClassChoose" value = "6">Klasa 6
+                    <input type ="radio" name ="testClassChoose" value = "7">Klasa 7
+                    <input type ="radio" name ="testClassChoose" value = "8">Klasa 8
                     <br><br>
 				 </form>
 				 <form>
                     <span class="questionTitle">Wybierz kategorię*:</span><br>
-                    <input type ="radio" name ="testTypeChoose" value = "quiz">Matematyka
-                    <input type ="radio" name ="testTypeChoose" value ="test"> Chemia
-                    <input type ="radio" name ="testTypeChoose" value = "quiz">Język angielski
-					<input type ="radio" name ="testTypeChoose" value ="test">Geografia		  
+                    <input type ="radio" name ="testCategoryChoose" value = "maths">Matematyka
+                    <input type ="radio" name ="testCategoryChoose" value = "chemistry"> Chemia
+                    <input type ="radio" name ="testCategoryChoose" value = "english">Język angielski
+					<input type ="radio" name ="testCategoryChoose" value = "geography">Geografia		  
 				</form><br>
 				<div id = "question_container">
 					<div class = 'new_question_div'>
 						<form class = "newQuestion" id = '1'>
 						<span class="questionTitle">1. Pytanie:</span><br><br>
 						Dodaj pytanie*:<br>
-						<input class = "testGeneralInformation" type = "text" name = "question"><br><br>
+						<input class = "testQuestion" type = "text" name = "question"><br><br>
 						Wybierz liczbę odpowiedzi*:
-						<select id = "selectAnswears1" name="answears_amount"  onchange="addAnswears(this)">
+						<select id = "selectAnswers1" name="answers_amount"  onchange="addAnswers(this)">
 							  <option selected hidden = "true" value ="2">2</option>
 							  <option value="2">2</option>
 							  <option value="3">3</option>
 							  <option value="4">4</option>
 						</select>
-						<div id = "question_answears_container_1"></div><br>
+						<div id = "question_answers_container_1"></div><br>
 						<table>
 							<tr>
 								<td>
 									<input class = "nextQuestionAdd" id = '1' type = "button" value = "Dodaj kolejne pytanie" onclick = "addNewQuestion(this)">
 								</td>
 								<td>
-									<input id = "testSubmit" class = "submit" type = "button" onclick = "submit()" value = "Zatwierdź">
+									<input id = "testSubmit" class = "submit" type = "button" onclick = "add()" value = "Zatwierdź">
 								</td>
 							</tr>
 						</table>
@@ -119,7 +122,7 @@ elo
 							
 	</section>
 	<div class="footer">
-		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
+		© 2018 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 	</div>
 </div>
 
@@ -130,30 +133,30 @@ elo
 		<form class = "newQuestion" id = "{{id}}">
 		<span class="questionTitle">{{id}} . Pytanie:</span><br><br>
 		Dodaj pytanie*:<br>
-		<input class = "testGeneralInformation" type = "text" name = "question"><br><br>
+		<input class = "testQuestion" type = "text" name = "question"><br><br>
 			Wybierz liczbe odpowiedzi*:
-			<select id = 'selectAnswears{{id}}' name="answears_amount" onchange="addAnswears(this)">
+			<select id = 'selectAnswers{{id}}' name="answers_amount" onchange="addAnswers(this)">
 				  <option selected hidden = "true" value ="2">2</option>
 				  <option value="2">2</option>
 				  <option value="3">3</option>
 				  <option value="4">4</option>
 			</select>
-			<div id = "question_answears_container_{{id}}"></div><br>
+			<div id = "question_answers_container_{{id}}"></div><br>
 				<input class = "nextQuestionAdd" id = "{{id}}" type = "button" value = "Dodaj nowe pytanie" onclick = "addNewQuestion(this)">
-				<input id = "testSubmit" class = "submit" type = "button" onclick = "submit()" value = "Zatwierdź">
+				<input id = "testSubmit" class = "submit" type = "button" onclick = "add()" value = "Zatwierdź">
 		</form>
 	</div>
 </script>
 
 
-<script type="text/template" id="questionAnswearsTemplate">
+<script type="text/template" id="questionAnswersTemplate">
     <br>
 	<table>
 		<tr>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}A' hidden = true><span class="questionTitle">A</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}A"><br /> <input type ="radio" name="{{id}}" value = "Aprawda">prawda</td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}B' hidden = true><span class="questionTitle">B</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}B"><br /> <input type ="radio" name="{{id}}" value = "Bprawda">prawda</td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}C' hidden = true><span class="questionTitle">C</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}C"><br /> <input type ="radio" name="{{id}}" value = "Cprawda">prawda</td>
-			<td class = 'questionAnswear{{id}}' id = 'answear{{id}}D' hidden = true><span class="questionTitle">D</span><br/><input class = "question_answear_input" type = "text" name = "answear{{id}}D"><br /> <input type ="radio" name="{{id}}" value = "Dprawda">prawda</td>
+			<td class = 'questionAnswer{{id}}' id = 'answer{{id}}_1' hidden = true><span class="questionTitle">A</span><br/><input class = "question_answer_input" type = "text" name = "answer{{id}}A"><br /> <input type ="radio" name="{{id}}" value = "Aprawda">prawda</td>
+			<td class = 'questionAnswer{{id}}' id = 'answer{{id}}_2' hidden = true><span class="questionTitle">B</span><br/><input class = "question_answer_input" type = "text" name = "answer{{id}}B"><br /> <input type ="radio" name="{{id}}" value = "Bprawda">prawda</td>
+			<td class = 'questionAnswer{{id}}' id = 'answer{{id}}_3' hidden = true><span class="questionTitle">C</span><br/><input class = "question_answer_input" type = "text" name = "answer{{id}}C"><br /> <input type ="radio" name="{{id}}" value = "Cprawda">prawda</td>
+			<td class = 'questionAnswer{{id}}' id = 'answer{{id}}_4' hidden = true><span class="questionTitle">D</span><br/><input class = "question_answer_input" type = "text" name = "answer{{id}}D"><br /> <input type ="radio" name="{{id}}" value = "Dprawda">prawda</td>
 		</tr>
 	</table>
 </script>
@@ -164,9 +167,9 @@ elo
 
 
 <?php 
-	$answearAmount = 2;
+	$answerAmount = 2;
 	
-	function setAnswearAmount($value){
-		$answearAmount = $value;
+	function setAnswerAmount($value){
+		$answerAmount = $value;
 	}
 ?>
