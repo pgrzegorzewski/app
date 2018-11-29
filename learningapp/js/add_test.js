@@ -14,31 +14,30 @@ function addAnswers(select)
 {
 	select.disabled = true;
 	
-	var id = select.id.slice(-1);
-	console.log(id);
+	var id = select.id.substring(13, select.id.length);
+
+	var answerContainer = '#question_answers_container_' + id;
+	console.log(answerContainer);
 	
-	var answearContainer = '#question_answers_container_' + id;
-	console.log(answearContainer);
+	var questionAnswerTemplate = $("#questionAnswersTemplate").html();
+	$(answerContainer).append(questionAnswerTemplate.replace(/{{id}}/g, id));
 	
-	var questionAnswearTemplate = $("#questionAnswersTemplate").html();
-	$(answearContainer).append(questionAnswearTemplate.replace(/{{id}}/g, id));
+	var activeAnswers = select.options[select.selectedIndex].value;
 	
-	var activeAnswears = select.options[select.selectedIndex].value;
-	
-	showAnswears(activeAnswears, id);
+	showAnswers(activeAnswers, id);
 	
 	
 }
 
-function showAnswears(activeAnswears, id)
+function showAnswers(activeAnswers, id)
 {
 	var classString = "questionAnswer" + id;
 	
-	var answears = document.getElementsByClassName("questionAnswer" + id);
+	var answers = document.getElementsByClassName("questionAnswer" + id);
 	
-	console.log(answears.length);
-	for (i = 0; i < activeAnswears; i++) {
-	    answears[i].hidden = false;
+	console.log(answers.length);
+	for (i = 0; i < activeAnswers; i++) {
+	    answers[i].hidden = false;
 	}
 }
 
@@ -55,6 +54,7 @@ function add()
 	var questionAnswers = new Array();
 	var iterator = 0;
 	var answerIterator = 0;
+	var information = '';
 	$('.newQuestion').each(function(){
 		questions[iterator] = $('#'+(iterator+1)+' input[class="testQuestion"]').val();
 		var answerInnerIterator = 0;
@@ -70,10 +70,7 @@ function add()
 		iterator++;
 
 	 });
-	console.log(questionAnswers);
-	console.log(questions);
-	//questionAnswers = json_encode(questionAnswers);
-	//questions = json_encode(questions);
+	
 	$.ajax({
 		type: "POST",
 		url: "../php/test_ajax/add_new_test.php",
@@ -87,7 +84,17 @@ function add()
 		},
 		success: function(data){
 			console.log(data);
+			information = data;
 		}
 	})
+	
+	setTimeout(function(){ 
+		alert(information); 
+	}, 1000);
+	if(information == "some informations are missing")
+	{
+		location.reload();
+	}
+	
 }
 

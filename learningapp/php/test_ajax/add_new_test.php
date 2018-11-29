@@ -116,5 +116,10 @@ if(isset($_POST['questionAnswers']) && isset($_POST['questions']) && isset($_POS
             }
         }
     }
+    echo 'success - You have created a test';
 }
+else 
+{
+    echo 'some informations are missing';
+} 
 ?>
