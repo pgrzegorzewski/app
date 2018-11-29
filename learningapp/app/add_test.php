@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
-	<link rel="StyleSheet" href="../css/class_7_test.css" />
+	<link rel="StyleSheet" href="../css/add_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/add_test.js"></script>
@@ -79,19 +79,45 @@
 					<span class="questionTitle">Nazwa testu*:</span><br>
                     <input class = "testGeneralInformation" id = "testName" type ="text" name ="test_name"><br><br>
                     <span class="questionTitle">Wybierz klasę*:</span><br>
-                    <input type ="radio" name ="testClassChoose" value = "4">Klasa 4
-                    <input type ="radio" name ="testClassChoose" value = "5">Klasa 5
-                    <input type ="radio" name ="testClassChoose" value = "6">Klasa 6
-                    <input type ="radio" name ="testClassChoose" value = "7">Klasa 7
-                    <input type ="radio" name ="testClassChoose" value = "8">Klasa 8
+                    <table id = "category">
+                    	<tr>
+                    		<td>
+                    			<input type ="radio" name ="testClassChoose" value = "4"> Klasa 4
+                       		</td>
+                    		<td>
+                    			<input type ="radio" name ="testClassChoose" value = "5"> Klasa 5
+                            </td>
+                    		<td>
+                    			<input type ="radio" name ="testClassChoose" value = "6"> Klasa 6
+                      		</td>
+                            <td>
+                            	<input type ="radio" name ="testClassChoose" value = "7"> Klasa 7	
+        					</td>
+        					<td>
+                            	<input type ="radio" name ="testClassChoose" value = "8"> Klasa 8
+        					</td>
+        				</tr>
+					</table>	  
                     <br><br>
 				 </form>
 				 <form>
                     <span class="questionTitle">Wybierz kategorię*:</span><br>
-                    <input type ="radio" name ="testCategoryChoose" value = "maths">Matematyka
-                    <input type ="radio" name ="testCategoryChoose" value = "chemistry"> Chemia
-                    <input type ="radio" name ="testCategoryChoose" value = "english">Język angielski
-					<input type ="radio" name ="testCategoryChoose" value = "geography">Geografia		  
+                    <table id = "category">
+                    	<tr>
+                    		<td>
+                    			<input type ="radio" name ="testCategoryChoose" value = "maths"> Matematyka
+                       		</td>
+                    		<td>
+                    			<input type ="radio" name ="testCategoryChoose" value = "chemistry"> Chemia
+                            </td>
+                    		<td>
+                    			<input type ="radio" name ="testCategoryChoose" value = "english"> Język angielski
+                      		</td>
+                            <td>
+                            	<input type ="radio" name ="testCategoryChoose" value = "geography"> Geografia	
+        					</td>
+        				</tr>
+					</table>	  
 				</form><br>
 				<div id = "question_container">
 					<div class = 'new_question_div'>
