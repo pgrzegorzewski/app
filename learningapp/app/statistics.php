@@ -76,7 +76,7 @@
 					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
 				</td>
 				<td style = "text-align:right">
-					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Logged as: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
+					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Zalogowany jako: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
 				</td>
 			</tr>
 		</table>
