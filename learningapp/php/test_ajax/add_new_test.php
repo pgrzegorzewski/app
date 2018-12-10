@@ -56,7 +56,7 @@ if(isset($_POST['questionAnswers']) && isset($_POST['questions']) && isset($_POS
                                         VALUES (
                                             '".$questions[$i]."',
                                             1,
-                                            ".$i.",
+                                            ".($i+1).",
                                             0::BIT,
                                             ".$testId."
                                         )RETURNING question_id;");

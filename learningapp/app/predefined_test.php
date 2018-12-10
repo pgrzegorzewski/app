@@ -27,7 +27,7 @@
 	<link rel="StyleSheet" href="../css/class_7_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
-	<script type="text/javascript" src="../js/class_7_test.js"></script>
+	<script type="text/javascript" src="../js/predefined_test.js"></script>
 	<script type="text/javascript" src="../js/side_menu_leaderboard.js"></script>
 </head>
 
@@ -110,10 +110,27 @@
 	
 	<section class = "section">
 		
-				
+		<button class = "predefined_test_btn" id = "22">test</button>	
+		
+		<div class ="row">
+			<div class="col-sm-12">	
+				<h4 id="test_title" hidden = "true">Zaczynajmy!</h4>
+			</div>
+		</div>
+		<div id = "test_questions">
+
+		</div>
+		<div class ='row'>
+				<div class='col-sm-12' id = 'result_div'>	
+					<h4 id= 'result_text' hidden = 'true'></h4>
+					<h4 id= 'result_award' hidden = 'true' style ="text-align:center;"></h4>
+				</div>
+		</div>	
 	</section>
+	
+	
 	<div class="footer">
-		© 2017 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
+		© 2018 PAWEŁ GRZEGORZEWSKI ALL RIGHTS RESERVED
 	</div>
 </div>
 
