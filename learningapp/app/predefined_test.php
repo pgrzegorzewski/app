@@ -4,12 +4,16 @@
     require 'connect.php';
     include '../php/class_achievement.php';
     include '../php/class_user.php';
+    include '../php/class_predefined_test.php';
     $achievement = new Achievement();
     $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
     $achievement->getBadgetList($connection);
     
+    $predefinedTest = new PredefinedTest();
+    
     $loggedUser = new User();
     $_SESSION['class_number'] = $loggedUser->userClassNumberGet($connection, $_SESSION['user']);
+    
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +75,7 @@
 			         $trCounter++;   
 			     }
 			     echo "</tr>";
-			     pg_close($connection);
+			     
 			?>
 		</table>
 	</div>
@@ -110,7 +114,13 @@
 	
 	<section class = "section">
 		
-		<button class = "predefined_test_btn" id = "22">test</button>	
+		<div id ="welcome_div">
+				<p>Witamy w sekcji gdzie znajdziesz testy stworzone przez nauczycieli. Pytania zawarte w testach są niezmienne, ponieważ zawierają naistatniejsze pytania z danego działu<br><br>Dobrej zabawy i powodzenia!!!<br><br><br></p>				
+			</div>
+		<?php 
+		      $predefinedTest->predefinedTestListGet($connection);
+		      pg_close($connection);
+		?>
 		
 		<div class ="row">
 			<div class="col-sm-12">	
