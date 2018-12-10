@@ -94,7 +94,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href ='add_test.php'>Dodaj własny test</a>
+					<a href ='add_test.php' id = 'visited'>Dodaj własny test</a>
 				</li>
 				<li>
 					<a href ='materials.php'>Materiały</a>
