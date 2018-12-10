@@ -1,5 +1,15 @@
 <?php 
     session_start();
+    
+    require 'connect.php';
+    include '../php/class_achievement.php';
+    include '../php/class_user.php';
+    $achievement = new Achievement();
+    $achievement->setUserAchievementBadgets($connection, $_SESSION['user']);
+    $achievement->getBadgetList($connection);
+    
+    $loggedUser = new User();
+    $_SESSION['class_number'] = $loggedUser->userClassNumberGet($connection, $_SESSION['user']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +42,36 @@
 	</div>
 	<div id = 'leaderboard' class = 'leaderboard' onmouseleave = "closeLeaderboard()" >
 		<a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
-		test 1000pts;
+		<table>
+			<?php 
+			     $trCounter = 0;
+			     foreach ($achievement->badgetList as $badgets)
+			     {
+			         if($trCounter % 3 == 0 && $trCounter == 0)    
+			         {
+			             echo "<tr>";
+			         }
+			         if ($trCounter % 3 == 0 && $trCounter > 0)
+			         {
+			             echo "</tr><tr>";
+			         }
+			         echo "<td width:20px><img height='62' width='62' ";
+			         if (in_array($badgets, $achievement->userBadgetList)) 
+			         {
+			            echo "src = ".$achievement->getAchievementBadgetUrl($connection, $badgets)." ";
+			         }
+			         else
+			         {
+			             echo 'src = "../resources/img/question_mark.png"';
+			         }
+			         echo '" /></td>';
+			         
+			         $trCounter++;   
+			     }
+			     echo "</tr>";
+			     pg_close($connection);
+			?>
+		</table>
 	</div>
 
 	<header class ="header">
@@ -42,7 +81,7 @@
 	<div class="nav">
 		<ol>
 			<li>
-					<a href ='quiz.php'>Quizy</a>
+					<a href ='predefined_test.php'>Gotowe testy</a>
 				</li>
 				<li>
 					<a href ='#'>Testy</a>

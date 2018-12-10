@@ -63,13 +63,9 @@ if(isset($_POST['questionAnswers']) && isset($_POST['questions']) && isset($_POS
         
         $row = pg_fetch_assoc($result);
         $questionId = $row['question_id'];
-        echo $questionId;
         
         for ($j = 0; $j < sizeof($questionAnswers); $j++)
         {
-            echo '<br>';
-                echo sizeof($questionAnswers);
-                echo $questionAnswers[$j][0];
             if(($i+1) == $questionAnswers[$j][0])
             {
                 $letter;
