@@ -84,7 +84,7 @@
 		<div class="nav">
 			<ol>
 				<li>
-					<a href ='quiz.php'>Quizy</a>
+					<a href ='predefined_test.php'>Gotowe testy</a>
 				</li>
 				<li>
 					<a href ='#'>Testy</a>

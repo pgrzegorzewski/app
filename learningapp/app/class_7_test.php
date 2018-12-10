@@ -92,10 +92,10 @@
 	<div class="nav">
 		<ol>
 			<li>
-				<a href ='quiz.php'>Quizes</a>
+				<a href ='predefined_test.php'>Gotowe testy</a>
 			</li>
 			<li>
-				<a href ='#'>Tests</a>
+				<a href ='#'>Testy</a>
 				<ul>
 					<li class = 'class_4'><a href="#">Klasa 4</a></li>
 					<li class = 'class_5'><a href="#">Klasa 5</a></li>
@@ -105,7 +105,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href ='add_test.php'>Add own test</a>
+				<a href ='add_test.php'>Dodaj własny test</a>
 			</li>
 			<li>
 				<a href ='materials.php'>Materiały</a>

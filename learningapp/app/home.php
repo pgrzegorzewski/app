@@ -85,7 +85,7 @@
 					<h1 id="title"><a href ="index.php"><b>Q</b>u¿zzy</a></h1>
 				</td>
 				<td style = "text-align:right">
-					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Zalogowany jako: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Logout</a></span>
+					<span name="user" id = "<?php echo $_SESSION['class_number']?>">Zalogowany jako: <?php echo $_SESSION['user'] ?>&ensp;</span><span><a href = "logout.php">Wyloguj</a></span>
 				</td>
 			</tr>
 		</table>
@@ -93,7 +93,7 @@
 		<div class="nav">
 			<ol>
 				<li>
-					<a href ='quiz.php'>Quizy</a>
+					<a href ='predefined_test.php'>Gotowe testy</a>
 				</li>
 				<li>
 					<a href ='#'>Testy</a>
