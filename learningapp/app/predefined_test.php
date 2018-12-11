@@ -29,6 +29,7 @@
 	<link rel="StyleSheet" href="../css/home.css" />
 	<link rel="StyleSheet" href="../css/question.css" />
 	<link rel="StyleSheet" href="../css/class_7_test.css" />
+	<link rel="StyleSheet" href="../css/predefined_test.css" />
 	<link rel="StyleSheet" href="../css/side_menu_leaderboard.css" />
 	<script type="text/javascript" src="../js/question.js"></script>
 	<script type="text/javascript" src="../js/predefined_test.js"></script>
@@ -115,7 +116,8 @@
 	<section class = "section">
 		
 		<div id ="welcome_div">
-				<p>Witamy w sekcji gdzie znajdziesz testy stworzone przez nauczycieli. Pytania zawarte w testach są niezmienne, ponieważ zawierają naistatniejsze pytania z danego działu<br><br>Dobrej zabawy i powodzenia!!!<br><br><br></p>				
+				<h4>Gotowe testy</h4>
+				<p>Witamy w sekcji gdzie znajdziesz testy stworzone przez nauczycieli. Pytania zawarte w testach są niezmienne, ponieważ zawierają najistotniejsze pytania z danego działu<br><br>Dobrej zabawy i powodzenia!!!<br><br><br></p>				
 			</div>
 		<?php 
 		      $predefinedTest->predefinedTestListGet($connection);
