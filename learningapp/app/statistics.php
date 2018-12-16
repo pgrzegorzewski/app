@@ -136,7 +136,7 @@
     				</table>
     				<div id ="user_answer_statistics_div">
 						Statystyki odpowiedzi
-						<canvas id="user_category_qestion_level_summary"></canvas>
+						<canvas id="user_category_question_per_level_summary"></canvas>
 					</div>
 				</div>
 			</div>
