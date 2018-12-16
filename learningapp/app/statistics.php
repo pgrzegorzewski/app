@@ -126,7 +126,18 @@
         						<canvas id="user_answer_last_month_statistics"></canvas>
         					</td>
         				</tr>
+        				<tr>
+        					<td colspan = "2">
+        						Dni zalogowanych/niezalogowanych
+        						<canvas id="user_activity_summary"></canvas>
+        					</td>
+        					
+        				</tr>
     				</table>
+    				<div id ="user_answer_statistics_div">
+						Statystyki odpowiedzi
+						<canvas id="user_category_qestion_level_summary"></canvas>
+					</div>
 				</div>
 			</div>
 

@@ -105,5 +105,29 @@ window.onload = function()
 			
 		}
 	})
+	
+	$.ajax({
+		type: "POST",
+		url: "../php/test_ajax/user_activity_summary.php",
+
+		success: function(data){
+			
+			var obj = JSON.parse(data);
+			var ctx = document.getElementById("user_activity_summary").getContext('2d');
+			console.log(data);
+			var data = {
+							labels: ["Zalogowano", "Niezalogowano"],
+							datasets: [{
+								  data: [obj[0].days_logged, obj[0].days_not_logged],
+								  backgroundColor: [ 'rgb(204, 255, 153, 0.6)', 'rgba(204, 0, 102, 0.6)']
+							}]
+						};
+			var myDoughnutChart = new Chart(ctx,{
+			    type: 'doughnut',
+			    data: data
+			});
+			
+		}
+	})
 
 }
