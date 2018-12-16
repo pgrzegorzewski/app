@@ -29,11 +29,11 @@ window.onload = function()
 			var data = {
 					  labels: statistics.day,
 					  datasets: [{
-					    label: 'Right',
+					    label: 'Poprawne',
 					    backgroundColor: 'rgba(75, 192, 192, 0.4)',
 					    data: statistics.true_cnt
 					  }, {
-					    label: "Wrong",
+					    label: "Niepoprawne",
 					    backgroundColor: 'rgba(255, 99, 132, 0.4)',
 					    data: statistics.false_cnt
 					  }]
@@ -57,5 +57,53 @@ window.onload = function()
 		}
 	})
 	
+	
+	$.ajax({
+		type: "POST",
+		url: "../php/test_ajax/user_question_answer_current_month_statistics.php",
+
+		success: function(data){
+			
+			var obj = JSON.parse(data);
+			var ctx = document.getElementById("user_answer_current_month_statistics").getContext('2d');
+
+			var data = {
+							labels:  ["Poprawne", "Niepoprawne"],
+							datasets: [{
+								  data: [obj[0].true_cnt, obj[0].false_cnt],
+								  backgroundColor: [ 'rgb(51, 204, 51, 0.6)', 'rgba(255, 99, 132, 0.6)']
+							}]
+						};
+			var myPieChart = new Chart(ctx,{
+			    type: 'pie',
+			    data: data
+			});
+			
+		}
+	})
+
+	$.ajax({
+		type: "POST",
+		url: "../php/test_ajax/user_question_answer_last_month_statistics.php",
+
+		success: function(data){
+			
+			var obj = JSON.parse(data);
+			var ctx = document.getElementById("user_answer_last_month_statistics").getContext('2d');
+
+			var data = {
+							labels: ["Poprawne", "Niepoprawne"],
+							datasets: [{
+								  data: [obj[0].true_cnt, obj[0].false_cnt],
+								  backgroundColor: [ 'rgb(51, 204, 51, 0.6)', 'rgba(255, 99, 132, 0.6)']
+							}]
+						};
+			var myPieChart = new Chart(ctx,{
+			    type: 'pie',
+			    data: data
+			});
+			
+		}
+	})
 
 }

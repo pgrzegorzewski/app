@@ -116,9 +116,10 @@
 	<section class = "section">
 		
 		<div id ="welcome_div">
-				<h4>Gotowe testy</h4>
-				<p>Witamy w sekcji gdzie znajdziesz testy stworzone przez nauczycieli. Pytania zawarte w testach są niezmienne, ponieważ zawierają najistotniejsze pytania z danego działu<br><br>Dobrej zabawy i powodzenia!!!<br><br><br></p>				
-			</div>
+			<h4>Gotowe testy</h4>
+			<p>Witamy w sekcji gdzie znajdziesz testy stworzone przez nauczycieli. Pytania zawarte w testach są niezmienne, ponieważ zawierają najistotniejsze pytania z danego działu<br><br>Dobrej zabawy i powodzenia!!!<br><br><br></p>				
+		</div>
+		<h4>Klasa 4</h4><br />
 		<?php 
 		      $predefinedTest->predefinedTestListGet($connection);
 		      pg_close($connection);

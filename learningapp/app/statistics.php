@@ -111,8 +111,22 @@
 			<div id ="welcome_div">
 				<h4>Statystyki</h4> 
 				<div id ="user_answer_statistics_div">
-					Answers statistics
+					Statystyki odpowiedzi
 					<canvas id="user_answer_statistics"></canvas>
+				</div>
+				<div id = "pie_charts">
+    				<table>
+        				<tr>
+        					<td>
+        						Statystyki odpowiedzi z bierzącego miesiąca
+        						<canvas id="user_answer_current_month_statistics"></canvas>
+        					</td>
+        					<td>
+        						Statystyki odpowiedzi z poprzedzniego miesiąca
+        						<canvas id="user_answer_last_month_statistics"></canvas>
+        					</td>
+        				</tr>
+    				</table>
 				</div>
 			</div>
 
