@@ -118,7 +118,7 @@
     				<table>
         				<tr>
         					<td>
-        						Statystyki odpowiedzi z bierzącego miesiąca
+        						Statystyki odpowiedzi z bieżącego miesiąca
         						<canvas id="user_answer_current_month_statistics"></canvas>
         					</td>
         					<td>
@@ -133,9 +133,9 @@
         					</td>
         					
         				</tr>
-    				</table>
+    				</table><br /><br />
     				<div id ="user_answer_statistics_div">
-						Statystyki odpowiedzi
+						Statystyki poziomu trudności pytań
 						<canvas id="user_category_question_per_level_summary"></canvas>
 					</div>
 				</div>

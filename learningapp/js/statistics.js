@@ -1,3 +1,6 @@
+var colors = ['rgba(72, 111, 175, 0.6)', 'rgba(112, 239, 121, 0.6)', 'rgba(232, 136, 92, 0.6)', 'rgba(217, 232, 92, 0.6)', 'rgba(183, 20, 36, 0.6)', 
+				'rgba(68, 189, 196, 0.6)', 'rgba(213, 141, 239, 0.6)', 'rgba(48, 135, 33, 0.6)', 'rgba(242, 226, 213, 0.6)'];
+
 window.onload = function()
 {
 	
@@ -146,9 +149,6 @@ window.onload = function()
 			data_json = JSON.parse(data);
 			
 			data_json_inner = data_json[0];
-			console.log(data_json_inner.summary);
-			
-			//var len = (JSON.parse(data_json_inner.summary)).length;
 						
 			statistics.category_name = Object.keys(JSON.parse(data_json_inner.summary));
 			
@@ -156,14 +156,39 @@ window.onload = function()
 			var len = statistics.category_name.length;
 			
 			
-			for(var i = 0; i < len; i++)
-			{
-				console.log(statistics.category_name[i]);
-				console.log(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[i]]);
-				console.logs
-				innerKeys +=  Object.keys(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[i]]);
+			for(var i = 0; i < len; i++){
+				
+				tempKeys =  Object.keys(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[i]]);
+				
+				for (var j = 0; j< tempKeys.length; j++){
+					
+					if(innerKeys.includes(tempKeys[j]) == false){
+						innerKeys.push(tempKeys[j]);
+					}
+					
+				}
 			}
 			console.log(innerKeys);
+			
+			var levelValuesArray = new Array(innerKeys.length)
+			
+			for(var i = 0; i < innerKeys.length; i++){
+				
+				levelValuesArray[i] = new Array(statistics.category_name.length);
+				for(var j = 0; j < statistics.category_name.length; j++){
+					
+					console.log("elo");
+					console.log(Object(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[j]])[innerKeys[i]])
+					if(Object(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[j]])[innerKeys[i]]){
+						levelValuesArray[i][j] = Object(Object(JSON.parse(data_json_inner.summary))[statistics.category_name[j]])[innerKeys[i]];
+					}else{
+						levelValuesArray[i][j] = 0;
+					}
+					
+				}
+			}
+			
+			console.log(levelValuesArray);
 			
 			var ctx = document.getElementById("user_category_question_per_level_summary").getContext('2d');
 			var barChart = new Chart(ctx, {
@@ -171,28 +196,36 @@ window.onload = function()
 			    data: {
 			        labels: statistics.category_name,
 			        datasets: [{
-						      backgroundColor: '#00ff00',
-			            label: '# of Votes 2016',
-			            data: [12, 19]
+						      backgroundColor: colors[0],
+			            label: 'poziom '+ innerKeys[0],
+			            data: levelValuesArray[0]
 			            }]
-					}
-			});
-
-			/*function addData(chart, label, color, data) {
+					},
+				options: {
+			        scales: {
+			            xAxes: [{
+			                stacked: true
+			            }],
+			            yAxes: [{
+			                stacked: true
+			            }]
+			        }
+			    }
+			})
+			
+			for(var i = 1; i < innerKeys.length; i++)
+			{
+					addData(barChart, 'poziom '+ innerKeys[i], '#ff0000', levelValuesArray[i]);
+			}
+			
+			function addData(chart, label, color, data) {
 					chart.data.datasets.push({
 				    label: label,
-			      backgroundColor: color,
+			      backgroundColor: colors[i],
 			      data: data
 			    });
 			    chart.update();
 			}
-
-			// inserting the new dataset after 3 seconds
-			setTimeout(function() {
-				addData(barChart, '# of Votes 2017', '#ff0000', [16, 14, 8]);
-			}, 3000);
-			*/
-
 			
 		}
 	})
