@@ -65,22 +65,31 @@ class Test
 
 
 	
-	public function drawTestSingleQuestion($connection, $category_id, $question_order)
+	public function drawTestSingleQuestion($connection, $category_id, $question_order, $userId)
 	{
-	    
-	    $result =  pg_query($connection, "SELECT user_id FROM usr.tbl_user WHERE username = '".$_SESSION['user']."'");
-	    $row = pg_fetch_assoc($result);
-	    
-	    $this->userId = $row['user_id'];
 	    
 		$sqlTestQuestions = "
                                 SELECT 
-                                      *
-                                FROM  questions.tf_user_category_test_questions_list (
-                                	$category_id
-                                    ,".(int)$this->userId."
-                                )x
-                                WHERE x.question_order = " .$question_order. "
+                                  user_id,
+                                  question_id,
+                                  category_id,
+                                  question_text,
+                                  question_order,
+                                  question_answer_id,
+                                  is_true,
+                                  answer_text,
+                                  question_answer_order,
+                                  question_answer_label,
+                                  is_question_image,
+                                  question_image_url,
+                                  is_answer_image,
+                                  answer_image_url
+                                FROM 
+                                    questions.tbl_user_category_question_test_current
+                                WHERE 
+                                  question_order = " .$question_order. "
+                                  AND category_id = " .$category_id. "
+                                  AND user_id = ".$userId."
 
                           ";
 
@@ -149,9 +158,27 @@ class Test
 	
 	public function returnTest($connection, $size, $category_id)
 	{
+	    
+	    $result =  pg_query($connection, "SELECT user_id FROM usr.tbl_user WHERE username = '".$_SESSION['user']."'");
+	    $row = pg_fetch_assoc($result);
+	    
+	    $this->userId = $row['user_id'];
+	    
+	    $sqlTestQuestions = "
+                                SELECT
+                                      *
+                                FROM  questions.sp_user_category_qestion_test_generate  (
+                                	$category_id
+                                    ,".(int)$this->userId."
+                                )
+                                    
+                          ";
+                                	
+        $result =  pg_query($connection, $sqlTestQuestions);
+	    
 	    for($x = 1; $x <= $size; $x++)
 		{
-		    $this->drawTestSingleQuestion($connection, $category_id, $x);
+		    $this->drawTestSingleQuestion($connection, $category_id, $x, $this->userId);
 		}
 		pg_close($connection);
 	}
