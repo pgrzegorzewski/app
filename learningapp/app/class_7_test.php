@@ -42,7 +42,7 @@
 		<p style="cursor:pointer"><img src = "../resources/img/trophy.png" height = "50px" onmouseover="openLeaderboard()"/></p> <!-- &#9776; -->
 	</div>
 	<div id = 'leaderboard' class = 'leaderboard' onmouseleave = "closeLeaderboard()" >
-		<span>Acievement badgets!</span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
+		<span><b>Naklejki za osiągnięcia!</b></span><a href = "javascript:void(0)" class = "closebtn" onclick = "closeLeaderboard()">&times;</a>
 		
 		<table>
 			<?php 
@@ -133,7 +133,7 @@
 								<button  name = '1' id = '4' class = 'category btn' >Chemia</button>
 							</td>
 							<td>
-								<button name = '2' id = '5'  class = 'category btn' value = 'test'>Angielski</button>
+								<button name = '2' id = '5'  class = 'category btn' value = 'test'>Język angielski</button>
 							</td>
 						</tr>
 						<tr>
@@ -141,7 +141,7 @@
 								<button  name = '3' id = '6' class = 'category btn' >Historia</button>
 							</td>
 							<td>
-								<button name = '4' id = '4' class = 'category btn' >Lektury</button>
+								<button name = '4' id = '7' class = 'category btn' >Język niemiecki</button>
 							</td>
 						</tr>
 					</table>
