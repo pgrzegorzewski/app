@@ -122,7 +122,7 @@
         						<canvas id="user_answer_current_month_statistics"></canvas>
         					</td>
         					<td>
-        						Statystyki odpowiedzi z poprzedzniego miesiąca
+        						Statystyki odpowiedzi z poprzedniego miesiąca
         						<canvas id="user_answer_last_month_statistics"></canvas>
         					</td>
         				</tr>

@@ -9,7 +9,7 @@ window.onload = function()
 	for(i = 0; i < x.length; i++)
 	{
 		x[i].onclick = function(){
-			this.className = ("clicked");
+			this.className = ("predefined_test_btn clicked");
 			this.value = this.id;
 			this.name = 'clicked';
 			this.style.backgroundColor = "#6ac65b";
@@ -61,6 +61,16 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 			blockTestButtons(idValue);
 			document.getElementById(id).innerText = drawAnswearAlert(this.is_true);
 			document.getElementById(img_id).appendChild(image);
+
+			if(answears == size){
+				
+				printResult();
+				setTimeout(function(){ 
+					location.reload();
+				}, 10000);
+				
+			}
+			
 		}
 	})
 	
@@ -70,8 +80,6 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 	console.log(answears);
 	console.log(size);
 	
-	if(answears == size)
-		printResult();
 }
 
 function blockTestButtons(id)

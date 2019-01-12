@@ -89,7 +89,15 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 				image.setAttribute("src", "../resources/img/correct.png");
 				button.classList.remove('btn-info');
 				button.classList.add('btn-success');
-				result ++;
+				result  = result + 1;
+				console.log(result);
+				if(answears == size)
+				{
+					printResult();
+					setTimeout(function(){ 
+						location.reload();
+					}, 10000);
+				}
 			}
 			else{
 				image.setAttribute("src", "../resources/img/error.png");
@@ -106,15 +114,7 @@ function checkTestQuestionAnswer(button, idValue, size, isQuestionImage, usernam
 	blockTestButtons(idValue);
 	answears = answears + 1;
 	scrollDownToNextQuestion(isQuestionImage);
-	if(answears == size)
-	{
-		j = 7;
-		for(i = 0; i < 1000; i++)
-		{
-			j *= 12;
-		}
-		printResult();
-	}
+	
 		
 }
 

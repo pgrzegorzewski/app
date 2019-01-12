@@ -90,11 +90,8 @@ function add()
 	
 	setTimeout(function(){ 
 		alert(information); 
-	}, 1000);
-	if(information != "some informations are missing")
-	{
 		location.reload();
-	}
+	}, 1000);
 	
 }
 
