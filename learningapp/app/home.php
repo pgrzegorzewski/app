@@ -134,16 +134,15 @@
 					
 					
 					require 'connect.php';
-					//$conn = mysqli_connect($servername, $username, $password, $dbname);
-					$conn_string = "host=localhost port=5432 dbname=quizzy user=postgres password=postgres";
-					$conn= pg_connect($conn_string);
-					if(!$conn){
+					
+					if(!$connection){
 						$error = error_get_last();
 						echo "Connection failed. Error was: ". $error['message']. "\n";
 					}
+					
 					require '../php/class_question.php';	
 					$question = new Question();
-					$question -> drawRandomQuestion($conn);
+					$question -> drawRandomQuestion($connection);
 					//drawRandomQuestion($conn);
 					?>
 				</div>
