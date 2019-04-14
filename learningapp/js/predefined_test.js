@@ -22,7 +22,7 @@ window.onload = function()
 function predefinedTestIdPass(id)
 {
 	//console.log(id);
-	$.post('http://localhost:90/app/learningapp/php/predefined_test_choose.php', {predefinedTestId : id}, function(data){
+	$.post('http://localhost/app/learningapp/php/predefined_test_choose.php', {predefinedTestId : id}, function(data){
 		$("#test_questions").html(data);
 	})
 }

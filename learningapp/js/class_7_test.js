@@ -43,7 +43,7 @@ window.onload = function()
 function categoryIdPass(id)
 {
 	//console.log(id);
-	$.post('http://localhost:90/app/learningapp/php/category_choose.php', {categoryId : id}, function(data){
+	$.post('http://localhost/app/learningapp/php/category_choose.php', {categoryId : id}, function(data){
 		$("#test_questions").html(data);
 	})
 }

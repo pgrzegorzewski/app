@@ -19,7 +19,7 @@ function setClass(button, classNumber)
     this.isClassSet = 1; 
     if(this.subject)
     {
-    	$.post('http://localhost:90/app/learningapp/php/class_material.php', {subject : this.subject, classNumber: this.classNumber}, function(data){
+    	$.post('http://localhost/app/learningapp/php/class_material.php', {subject : this.subject, classNumber: this.classNumber}, function(data){
     		$("#material").html(data);
     	})
     }
@@ -39,7 +39,7 @@ function setSubject(button, subject)
     this.isSubjectSet = 1; 
     if(this.classNumber)
     {
-    	$.post('http://localhost:90/app/learningapp/php/class_material.php', {subject : this.subject, classNumber: this.classNumber}, function(data){
+    	$.post('http://localhost/app/learningapp/php/class_material.php', {subject : this.subject, classNumber: this.classNumber}, function(data){
     		$("#material").html(data);
     	})
     }
